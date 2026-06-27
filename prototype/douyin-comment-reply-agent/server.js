@@ -37,19 +37,22 @@ const server = http.createServer(async (req, res) => {
 
     if (req.method === "GET" && url.pathname === "/api/health") {
       const auntieRules = loadAuntieRules();
+      const auth = douyinAuth.getAuthSnapshot(rootDir);
+      const llm = getLlmConfig();
       return sendJson(res, 200, {
         ok: true,
         module: "douyin-comment-reply-agent",
         adapter: process.env.COMMENT_ADAPTER || "mock",
         appType: process.env.DOUYIN_APP_TYPE || "mini",
         configured: isDouyinConfigured(),
-        douyinAuth: douyinAuth.redactAuth(douyinAuth.getAuthSnapshot(rootDir)),
+        env: getRuntimeEnvStatus(),
+        douyinAuth: douyinAuth.redactAuth(auth),
         requireManualApproval: parseBoolean(process.env.REPLY_REQUIRE_MANUAL_APPROVAL, true),
         auntieRulesLoaded: Boolean(auntieRules.source),
         auntieRulesSource: auntieRules.source || "",
-        llmProvider: getLlmConfig().provider,
-        llmConfigured: getLlmConfig().configured,
-        llmModel: getLlmConfig().model,
+        llmProvider: llm.provider,
+        llmConfigured: llm.configured,
+        llmModel: llm.model,
       });
     }
 
@@ -691,6 +694,40 @@ function getLlmConfig() {
     model,
     timeoutMs: Number(process.env.LLM_TIMEOUT_MS || 20000),
     configured: Boolean(apiKey && model && baseUrl && provider !== "none"),
+  };
+}
+
+function getRuntimeEnvStatus() {
+  const has = (value) => Boolean(String(value || "").trim());
+  const mask = (value) => {
+    const text = String(value || "").trim();
+    if (!text) return "";
+    if (text.length <= 8) return `${text.slice(0, 2)}***`;
+    return `${text.slice(0, 4)}***${text.slice(-4)}`;
+  };
+
+  const appId = String(process.env.DOUYIN_APP_ID || process.env.DOUYIN_CLIENT_KEY || "").trim();
+  const appSecret = String(process.env.DOUYIN_APP_SECRET || process.env.DOUYIN_CLIENT_SECRET || "").trim();
+  const openApiBase = String(process.env.DOUYIN_OPENAPI_BASE || "https://open.douyin.com").replace(/\/+$/, "");
+  const llm = getLlmConfig();
+
+  return {
+    douyin: {
+      appIdSet: has(appId),
+      appIdMasked: mask(appId),
+      appSecretSet: has(appSecret),
+      openApiBase,
+      accessTokenSet: has(process.env.DOUYIN_ACCESS_TOKEN),
+      refreshTokenSet: has(process.env.DOUYIN_REFRESH_TOKEN),
+      openIdSet: has(process.env.DOUYIN_OPEN_ID),
+    },
+    llm: {
+      provider: llm.provider,
+      configured: llm.configured,
+      model: llm.model,
+      apiKeySet: has(process.env.DEEPSEEK_API_KEY || process.env.MODEL_API_KEY),
+      baseUrl: llm.baseUrl,
+    },
   };
 }
 
