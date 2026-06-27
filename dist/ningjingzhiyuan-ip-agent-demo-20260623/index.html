@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>全自动 IP 智能体 Demo</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell consumer-shell">
+      <header class="consumer-topbar">
+        <div class="brand-block">
+          <div class="brand-mark">IP</div>
+          <div>
+            <p class="eyebrow">C端个人IP赋能</p>
+            <h1>全自动 IP 智能体</h1>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <div class="status-pill" id="globalStatus">待启动</div>
+          <button id="openLoginBrowser" class="ghost-button helper-action" type="button">登录态异常时打开浏览器</button>
+        </div>
+      </header>
+
+      <section class="creation-board">
+        <section class="creator-column">
+        <section class="creator-panel">
+          <div class="panel-kicker">
+            <p class="eyebrow">Create</p>
+            <h2>给一个爆款链接，生成你的真人口播视频</h2>
+          </div>
+
+          <div class="simple-flow">
+            <section class="quick-card">
+              <div class="quick-index">01</div>
+              <div class="quick-copy">
+                <label for="videoAsset">上传头像/真人形象</label>
+                <p id="videoAssetName">支持 jpg/png/webp；上传视频会自动抽取首帧</p>
+              </div>
+              <label class="compact-upload" for="videoAsset">选择文件</label>
+              <input id="videoAsset" type="file" accept="image/*,video/*" />
+            </section>
+
+            <section class="quick-card">
+              <div class="quick-index">02</div>
+              <div class="quick-copy">
+                <label for="voiceAsset">录制或上传音频</label>
+                <p id="voiceAssetName">可直接录 10 秒人声，也支持 mp3/wav/m4a</p>
+              </div>
+              <div class="quick-actions">
+                <button id="recordVoiceAsset" class="compact-button" type="button">录音</button>
+                <label class="compact-upload" for="voiceAsset">上传</label>
+              </div>
+              <span id="recordVoiceAssetName" class="sr-note">点击录制 10 秒人声并上传</span>
+              <input id="voiceAsset" type="file" accept="audio/*" />
+            </section>
+
+            <section class="quick-card link-card">
+              <div class="quick-index">03</div>
+              <div class="quick-copy">
+                <label for="videoUrl">粘贴抖音链接</label>
+                <p>复制口令、短链、视频页都可以</p>
+              </div>
+              <div class="input-row">
+                <input id="videoUrl" value="" placeholder="https://www.douyin.com/video/..." />
+                <button id="pasteSample" class="icon-button" type="button" title="填入示例">↗</button>
+              </div>
+            </section>
+
+            <section class="quick-card output-request">
+              <div class="quick-index">04</div>
+              <div class="quick-copy">
+                <label>输出视频</label>
+                <p>系统会自动抽帧、转写、改写、配音并提交视频生成</p>
+              </div>
+              <button id="runButton" class="primary-action" type="button">
+                <span>生成视频</span>
+                <small>自动完成全流程</small>
+              </button>
+            </section>
+          </div>
+
+          <details class="fold-panel">
+            <summary>高级设置</summary>
+            <div class="fold-body settings-grid">
+              <div class="control-section">
+                <label for="industry">行业</label>
+                <select id="industry">
+                  <option value="餐饮">餐饮</option>
+                  <option value="AI培训">AI培训</option>
+                  <option value="美业">美业</option>
+                  <option value="家装">家装</option>
+                  <option value="本地生活">本地生活</option>
+                </select>
+              </div>
+              <div class="control-section">
+                <label for="persona">IP风格</label>
+                <select id="persona">
+                  <option value="商业增长顾问">商业增长顾问</option>
+                  <option value="老板陪跑教练">老板陪跑教练</option>
+                  <option value="犀利行业观察">犀利行业观察</option>
+                  <option value="温和实战派">温和实战派</option>
+                </select>
+              </div>
+              <div class="control-section">
+                <label for="offer">引流产品/服务</label>
+                <input id="offer" value="AI获客诊断课" />
+              </div>
+              <div class="control-section">
+                <label>自动化模式</label>
+                <div class="mode-switch" role="group" aria-label="自动化模式">
+                  <button class="mode active" type="button" data-mode="auto">全自动</button>
+                  <button class="mode" type="button" data-mode="review">人工审核</button>
+                </div>
+              </div>
+              <div class="control-section">
+                <label for="sourceText">字幕/口播补充</label>
+                <textarea id="sourceText" rows="4" spellcheck="false" placeholder="可选。无字幕时系统会录制原视频音频并 ASR。"></textarea>
+              </div>
+              <div class="control-section">
+                <label for="imageUrl">封面/截图 URL</label>
+                <input id="imageUrl" placeholder="可选，https://...jpg" />
+              </div>
+              <div class="control-section">
+                <label for="voiceBaseline">声音基准</label>
+                <select id="voiceBaseline">
+                  <option value="标准TTS音色">标准TTS音色</option>
+                  <option value="用户上传音频">用户上传音频</option>
+                  <option value="历史作品声音">历史作品声音</option>
+                </select>
+              </div>
+              <div class="control-section">
+                <label for="videoBaseline">形象基准</label>
+                <select id="videoBaseline">
+                  <option value="标准数字人模板">标准数字人模板</option>
+                  <option value="用户上传真人视频">用户上传真人视频</option>
+                  <option value="历史作品镜头风格">历史作品镜头风格</option>
+                </select>
+              </div>
+              <div class="control-section wide-field">
+                <label for="assetNotes">资产说明</label>
+                <textarea id="assetNotes" rows="3" spellcheck="false" placeholder="可记录声音特点、形象要求、门店/产品素材、禁用表达。"></textarea>
+              </div>
+              <div class="control-section wide-field">
+                <label for="historyAsset">历史作品</label>
+                <label class="upload-box compact-history" for="historyAsset">
+                  <strong>上传历史作品</strong>
+                  <span id="historyAssetName">用于账号风格、镜头、字幕基准</span>
+                  <input id="historyAsset" type="file" accept="video/*,audio/*,image/*" />
+                </label>
+              </div>
+              <button id="useStandardAssets" class="ghost-button wide-field" type="button">使用标准测试素材</button>
+            </div>
+          </details>
+        </section>
+
+      <details class="fold-panel process-fold">
+        <summary>展开查看分析过程和内容包</summary>
+        <div class="fold-body process-body">
+          <section class="pipeline" aria-label="自动化流程">
+            <article class="step-card" data-step="extract">
+              <div class="step-index">01</div>
+              <div>
+                <h3>自动化提取</h3>
+                <p>解析视频结构、钩子、情绪曲线和转化点。</p>
+              </div>
+              <span class="step-state">待执行</span>
+            </article>
+            <article class="step-card" data-step="script">
+              <div class="step-index">02</div>
+              <div>
+                <h3>文案生成</h3>
+                <p>生成可复用的爆款骨架。</p>
+              </div>
+              <span class="step-state">待执行</span>
+            </article>
+            <article class="step-card" data-step="rewrite">
+              <div class="step-index">03</div>
+              <div>
+                <h3>行业改写</h3>
+                <p>改写成当前行业和 IP 口吻。</p>
+              </div>
+              <span class="step-state">待执行</span>
+            </article>
+            <article class="step-card" data-step="audio">
+              <div class="step-index">04</div>
+              <div>
+                <h3>音频生成</h3>
+                <p>生成口播配音。</p>
+              </div>
+              <span class="step-state">待执行</span>
+            </article>
+            <article class="step-card" data-step="avatar">
+              <div class="step-index">05</div>
+              <div>
+                <h3>形象合成</h3>
+                <p>匹配真人形象并提交生成。</p>
+              </div>
+              <span class="step-state">待执行</span>
+            </article>
+            <article class="step-card" data-step="render">
+              <div class="step-index">06</div>
+              <div>
+                <h3>成片输出</h3>
+                <p>返回视频预览和分发包。</p>
+              </div>
+              <span class="step-state">待执行</span>
+            </article>
+          </section>
+
+          <section class="extract-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Analysis</p>
+                <h3>自动化提取结果</h3>
+              </div>
+              <span class="confidence-pill">置信度 <strong id="extractConfidence">--</strong></span>
+            </div>
+            <div class="capture-status" id="captureStatus">
+              <span>输入：等待解析</span>
+              <span>画面帧：--</span>
+              <span>音频：--</span>
+            </div>
+            <div class="extract-grid">
+              <div class="extract-summary">
+                <h4>爆款判断</h4>
+                <p id="extractSummary">等待第一步提取...</p>
+                <h4>开场钩子</h4>
+                <p id="extractHook">待提取</p>
+                <small id="extractWhy">模型会解释这个钩子为什么有效。</small>
+              </div>
+              <div class="extract-summary">
+                <h4>可复用骨架</h4>
+                <p id="extractPattern">待提取</p>
+                <h4>情绪曲线</h4>
+                <div class="emotion-curve" id="emotionCurve">
+                  <span>待提取</span>
+                </div>
+                <h4>转化点</h4>
+                <p id="conversionPoint">待提取</p>
+              </div>
+            </div>
+            <ol class="structure-list" id="structureList"></ol>
+            <ul class="extract-risks" id="extractRisks"></ul>
+          </section>
+
+          <article class="result-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Generated Pack</p>
+                <h3>内容包</h3>
+              </div>
+              <button id="copyPack" class="ghost-button" type="button">复制内容包</button>
+            </div>
+            <div class="result-tabs" role="tablist">
+              <button class="tab active" type="button" data-tab="script">文案</button>
+              <button class="tab" type="button" data-tab="platforms">分发</button>
+              <button class="tab" type="button" data-tab="risk">风控</button>
+            </div>
+            <div class="tab-panel active" id="tab-script">
+              <div class="result-block asset-output">
+                <h4>生成基准</h4>
+                <ul id="baselineList">
+                  <li><strong>结构</strong><span>等待自动化提取</span></li>
+                  <li><strong>声音</strong><span>标准TTS音色</span></li>
+                  <li><strong>视频</strong><span>标准数字人模板</span></li>
+                </ul>
+              </div>
+              <div class="result-block">
+                <h4>原片爆款结构</h4>
+                <p id="originalStructure">等待自动化提取...</p>
+              </div>
+              <div class="result-block">
+                <h4>行业改写文案</h4>
+                <textarea id="generatedScript" rows="10" spellcheck="false">点击“生成视频”后自动生成。</textarea>
+              </div>
+            </div>
+            <div class="tab-panel" id="tab-platforms">
+              <div class="platform-list">
+                <div class="platform-item">
+                  <span>抖音</span>
+                  <p id="douyinCopy">待生成</p>
+                </div>
+                <div class="platform-item">
+                  <span>视频号</span>
+                  <p id="wechatCopy">待生成</p>
+                </div>
+                <div class="platform-item">
+                  <span>小红书</span>
+                  <p id="redCopy">待生成</p>
+                </div>
+              </div>
+            </div>
+            <div class="tab-panel" id="tab-risk">
+              <div class="risk-list">
+                <div>
+                  <strong>直接引流</strong>
+                  <span id="riskLead">待检查</span>
+                </div>
+                <div>
+                  <strong>夸大承诺</strong>
+                  <span id="riskPromise">待检查</span>
+                </div>
+                <div>
+                  <strong>重复内容</strong>
+                  <span id="riskRepeat">待检查</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </details>
+        </section>
+
+        <article class="preview-panel output-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Output</p>
+              <h3>视频输出</h3>
+            </div>
+            <button id="playButton" class="ghost-button" type="button" disabled>播放</button>
+          </div>
+          <div class="phone-preview">
+            <video id="videoPreview" class="real-video-preview" controls playsinline hidden></video>
+            <div class="phone-status">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="avatar-stage">
+              <div class="avatar-halo"></div>
+              <div class="avatar-face">
+                <div class="hair"></div>
+                <div class="eyes"></div>
+                <div class="mouth"></div>
+              </div>
+            </div>
+            <div class="caption-box" id="captionBox">等待生成视频...</div>
+            <div class="video-meta">
+              <strong id="videoTitle">标题将在这里生成</strong>
+              <span id="videoTags">#个人IP #AI获客 #短视频</span>
+            </div>
+          </div>
+          <div class="task-status" id="videoTaskStatus">视频生成任务尚未提交</div>
+          <div class="runtime-card output-metrics">
+            <div>
+              <span class="metric" id="runtimeMetric">00:00</span>
+              <small>当前耗时</small>
+            </div>
+            <div>
+              <span class="metric" id="costMetric">¥0.42</span>
+              <small>单条预估成本</small>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="./app.js"></script>
+  </body>
+</html>

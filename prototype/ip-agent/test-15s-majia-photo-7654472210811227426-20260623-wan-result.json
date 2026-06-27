@@ -1,0 +1,59 @@
+{
+  "ok": true,
+  "provider": "wan2.7-i2v",
+  "model": "wan2.7-i2v",
+  "status": "SUCCEEDED",
+  "taskId": "791eb1ce-d2ed-48c7-b208-0f567ba9090b",
+  "requestId": "36c0b26e-aea7-94b8-992b-95e5a4c68aa9",
+  "url": "https://dashscope-a717.oss-accelerate.aliyuncs.com/1d/20/20260623/f235fbfe/56794107-metadata_user_0dc6e71ac8f20fbc.mp4?Expires=1782285573&OSSAccessKeyId=LTAI5tJjG6wsHad1Sf7iezX4&Signature=p3GtwW%2BMXx7kOpMxVL1lR%2F0o5s0%3D",
+  "videoUrl": "https://dashscope-a717.oss-accelerate.aliyuncs.com/1d/20/20260623/f235fbfe/56794107-metadata_user_0dc6e71ac8f20fbc.mp4?Expires=1782285573&OSSAccessKeyId=LTAI5tJjG6wsHad1Sf7iezX4&Signature=p3GtwW%2BMXx7kOpMxVL1lR%2F0o5s0%3D",
+  "localVideoUrl": "/assets/outputs/791eb1ce-d2ed-48c7-b208-0f567ba9090b.mp4",
+  "localVideoPath": "C:\\Users\\majia\\Documents\\ningjingzhiyuan-2C Agent\\prototype\\ip-agent\\assets\\outputs\\791eb1ce-d2ed-48c7-b208-0f567ba9090b.mp4",
+  "localVideoError": "",
+  "usage": {
+    "duration": 10,
+    "input_video_duration": 0,
+    "output_video_duration": 10,
+    "video_count": 1,
+    "SR": 720
+  },
+  "parameters": {
+    "resolution": "720P",
+    "duration": 10,
+    "prompt_extend": true,
+    "watermark": false
+  },
+  "durationPlan": {
+    "sourceDurationSeconds": 9.542993,
+    "explicitDurationSeconds": 10,
+    "manualDurationOverride": false,
+    "requestedDurationSeconds": 9.542993,
+    "outputDurationSeconds": 10,
+    "minSingleSegmentSeconds": 2,
+    "maxSingleSegmentSeconds": 15,
+    "followsSourceDuration": true,
+    "needsSegmentation": false,
+    "estimatedSegments": 1,
+    "reason": "输出时长跟随原视频时长，并按 wan2.7-i2v 支持的 2-15 秒整数约束取整。"
+  },
+  "inputs": {
+    "image": {
+      "assetId": "video-20260623071737-f06a6e51",
+      "name": "微信图片_20260623100124_324_97.jpg",
+      "ossUrl": "oss://dashscope-instant/a4b12fdbcd899679777bf98cc6cf1187/2026-06-23/a6d69899-16a1-9826-ad5d-6374aa235dfd/video-20260623071737-f06a6e51.jpg",
+      "expiresAt": "2026-06-25T07:17:38.003Z"
+    },
+    "audio": {
+      "assetId": "voice-tts-a1fb50cf",
+      "name": "qwen-tts-1782199056646.wav",
+      "ossUrl": "oss://dashscope-instant/a4b12fdbcd899679777bf98cc6cf1187/2026-06-23/b6823625-bf95-9a81-9d52-3e0fe36419b6/voice-wan-38a917b3.wav",
+      "expiresAt": "2026-06-25T07:17:38.063Z",
+      "source": "generated-audio",
+      "preparedAssetId": "voice-wan-38a917b3",
+      "preparedName": "qwen-tts-1782199056646-wan-10s.wav",
+      "preparedDurationSeconds": 10,
+      "preparedFrom": "voice-tts-a1fb50cf"
+    }
+  },
+  "note": "wan2.7-i2v 已返回真实视频并已保存到本地 assets/outputs。"
+}

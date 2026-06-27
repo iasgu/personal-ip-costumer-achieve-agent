@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/create/index",
+    "pages/publish/index",
+    "pages/comments/index",
+    "pages/profile/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "IP Agent",
+    "navigationBarBackgroundColor": "#f5f7fb",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f5f7fb"
+  },
+  "tabBar": {
+    "color": "#64748b",
+    "selectedColor": "#4169e1",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/create/index",
+        "text": "Create",
+        "iconPath": "assets/tabbar/create.png",
+        "selectedIconPath": "assets/tabbar/create.png"
+      },
+      {
+        "pagePath": "pages/publish/index",
+        "text": "Publish",
+        "iconPath": "assets/tabbar/publish.png",
+        "selectedIconPath": "assets/tabbar/publish.png"
+      },
+      {
+        "pagePath": "pages/comments/index",
+        "text": "Interact",
+        "iconPath": "assets/tabbar/comments.png",
+        "selectedIconPath": "assets/tabbar/comments.png"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "Profile",
+        "iconPath": "assets/tabbar/profile.png",
+        "selectedIconPath": "assets/tabbar/profile.png"
+      }
+    ]
+  }
+}

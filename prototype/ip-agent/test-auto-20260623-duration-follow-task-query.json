@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "taskId": "d78e29aa-7e55-4acb-91ea-3a334b9e36ff",
+  "status": "RUNNING",
+  "requestId": "decddb1f-ae64-971f-a59c-f0262928a4f6",
+  "videoUrl": "",
+  "url": "",
+  "localVideoUrl": "",
+  "localVideoPath": "",
+  "localVideoError": "",
+  "usage": null,
+  "raw": {
+    "request_id": "decddb1f-ae64-971f-a59c-f0262928a4f6",
+    "output": {
+      "task_id": "d78e29aa-7e55-4acb-91ea-3a334b9e36ff",
+      "task_status": "RUNNING",
+      "submit_time": "2026-06-23 12:43:07.808",
+      "scheduled_time": "2026-06-23 12:43:07.841"
+    }
+  }
+}

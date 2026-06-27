@@ -1,0 +1,27 @@
+﻿{
+    "ok":  true,
+    "provider":  "wan2.7-i2v",
+    "model":  "wan2.7-i2v-2026-04-25",
+    "status":  "PENDING",
+    "taskId":  "96ba3196-a21b-44b0-a731-0f198d96da6f",
+    "requestId":  "e808443a-86b0-992d-9873-838b24fd30cb",
+    "url":  "",
+    "videoUrl":  "",
+    "usage":  null,
+    "inputs":  {
+                   "image":  {
+                                 "assetId":  "video-standard-a6af16c0",
+                                 "name":  "standard-avatar-wikimedia.jpg",
+                                 "ossUrl":  "oss://dashscope-instant/a4b12fdbcd899679777bf98cc6cf1187/2026-06-23/5c2ecaf0-83ab-9c45-90bd-527dca47cf52/video-standard-a6af16c0.jpg",
+                                 "expiresAt":  "2026-06-24T17:32:06.867Z"
+                             },
+                   "audio":  {
+                                 "assetId":  "voice-tts-4660db51",
+                                 "name":  "qwen-tts-1782149525920.wav",
+                                 "ossUrl":  "oss://dashscope-instant/a4b12fdbcd899679777bf98cc6cf1187/2026-06-23/ced764fd-ce13-9e5f-9419-6566492e326c/voice-tts-4660db51.wav",
+                                 "expiresAt":  "2026-06-24T17:32:06.958Z",
+                                 "source":  "generated-audio"
+                             }
+               },
+    "note":  "wan2.7-i2v 任务已提交；配置 WAN_S2V_POLL_TIMEOUT_MS 可在服务端等待结果，或用任务 ID 查询。"
+}

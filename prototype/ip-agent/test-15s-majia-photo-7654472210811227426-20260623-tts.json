@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "provider": "qwen-tts",
+  "model": "qwen-tts-latest",
+  "voice": "Cherry",
+  "id": "voice-tts-a1fb50cf",
+  "name": "qwen-tts-1782199056646.wav",
+  "url": "/assets/uploads/voice-tts-a1fb50cf.wav",
+  "path": "C:\\Users\\majia\\Documents\\ningjingzhiyuan-2C Agent\\prototype\\ip-agent\\assets\\uploads\\voice-tts-a1fb50cf.wav",
+  "contentType": "audio/x-wav",
+  "size": 2224364,
+  "sizeLabel": "2.1MB",
+  "sourceUrl": "http://dashscope-result-wlcb.oss-cn-wulanchabu.aliyuncs.com/1d/e0/20260623/b02dd599/827fdc5f-a90a-4e45-aec8-b4e91c208094.wav?Expires=1782285457&OSSAccessKeyId=LTAI5tKPD3TMqf2Lna1fASuh&Signature=sD9rWPgY4Kg9oTSt5vuNnLbYSLA%3D",
+  "expiresAt": 1782285457,
+  "usage": {
+    "input_tokens": 182,
+    "input_tokens_details": {
+      "text_tokens": 182
+    },
+    "output_tokens": 2316,
+    "output_tokens_details": {
+      "audio_tokens": 2316,
+      "text_tokens": 0
+    },
+    "total_tokens": 2498
+  }
+}

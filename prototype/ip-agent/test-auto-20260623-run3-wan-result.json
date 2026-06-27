@@ -1,0 +1,43 @@
+{
+  "ok": true,
+  "provider": "wan2.7-i2v",
+  "model": "wan2.7-i2v-2026-04-25",
+  "status": "SUCCEEDED",
+  "taskId": "997c5b5e-8759-48e2-8d1a-972c67322d09",
+  "requestId": "5286a21c-2be7-93b1-91ed-2835c7903544",
+  "url": "https://dashscope-a717.oss-accelerate.aliyuncs.com/1d/7f/20260623/26ad5d64/65351685-metadata_user_403586c700ea099c.mp4?Expires=1782273472&OSSAccessKeyId=LTAI5tJjG6wsHad1Sf7iezX4&Signature=CIDr52FDoj6L%2FULfoMdVmhj2390%3D",
+  "videoUrl": "https://dashscope-a717.oss-accelerate.aliyuncs.com/1d/7f/20260623/26ad5d64/65351685-metadata_user_403586c700ea099c.mp4?Expires=1782273472&OSSAccessKeyId=LTAI5tJjG6wsHad1Sf7iezX4&Signature=CIDr52FDoj6L%2FULfoMdVmhj2390%3D",
+  "usage": {
+    "duration": 10,
+    "input_video_duration": 0,
+    "output_video_duration": 10,
+    "video_count": 1,
+    "SR": 720
+  },
+  "parameters": {
+    "resolution": "720P",
+    "duration": 10,
+    "prompt_extend": true,
+    "watermark": false
+  },
+  "inputs": {
+    "image": {
+      "assetId": "video-standard-a6af16c0",
+      "name": "standard-avatar-wikimedia.jpg",
+      "ossUrl": "oss://dashscope-instant/a4b12fdbcd899679777bf98cc6cf1187/2026-06-23/b7a37c66-5452-9c8f-a40c-b1c64d01e0a3/video-standard-a6af16c0.jpg",
+      "expiresAt": "2026-06-25T03:56:38.445Z"
+    },
+    "audio": {
+      "assetId": "voice-tts-d419d05f",
+      "name": "qwen-tts-1782186997533.wav",
+      "ossUrl": "oss://dashscope-instant/a4b12fdbcd899679777bf98cc6cf1187/2026-06-23/91988ee9-49ce-9d2e-b7d7-10ebbea8f026/voice-wan-58b9e599.wav",
+      "expiresAt": "2026-06-25T03:56:38.494Z",
+      "source": "generated-audio",
+      "preparedAssetId": "voice-wan-58b9e599",
+      "preparedName": "qwen-tts-1782186997533-wan-10s.wav",
+      "preparedDurationSeconds": 10,
+      "preparedFrom": "voice-tts-d419d05f"
+    }
+  },
+  "note": "wan2.7-i2v 已返回真实视频 URL，请在 24 小时内下载保存。"
+}

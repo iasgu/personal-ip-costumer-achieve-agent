@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>发布与互动评论模块</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">PUBLISH INTERACTION AGENT</p>
+          <h1>发布与互动评论工作台</h1>
+          <p class="subhead">独立模块：发布草稿、评论回复、即梦能力评估。暂不集成主生成链路。</p>
+        </div>
+        <div class="status-card">
+          <span id="adapterBadge" class="badge">加载中</span>
+          <strong id="healthTitle">检查服务</strong>
+          <small id="healthText">正在读取 /api/health</small>
+        </div>
+      </header>
+
+      <section class="grid">
+        <article class="panel draft-panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-kicker">01</p>
+              <h2>发布草稿</h2>
+            </div>
+            <button id="refreshDraftsBtn" class="ghost-btn" type="button">刷新</button>
+          </div>
+
+          <form id="draftForm" class="form-grid">
+            <label>
+              视频地址或本地路径
+              <input name="videoUrl" placeholder="/assets/outputs/demo.mp4" required />
+            </label>
+            <label>
+              封面地址
+              <input name="coverUrl" placeholder="/assets/outputs/cover.jpg" />
+            </label>
+            <label class="span-2">
+              标题
+              <input name="title" placeholder="给一个爆款链接，生成你的真人口播视频" required />
+            </label>
+            <label class="span-2">
+              描述
+              <textarea name="description" rows="3" placeholder="这条视频用于测试个人IP短视频发布链路。"></textarea>
+            </label>
+            <label>
+              话题
+              <input name="hashtags" placeholder="个人IP, AI获客, 短视频" />
+            </label>
+            <label>
+              发布时间
+              <input name="scheduledAt" type="datetime-local" />
+            </label>
+            <div class="span-2 action-row">
+              <button class="primary-btn" type="submit">保存草稿</button>
+              <button id="loadDemoBtn" class="secondary-btn" type="button">填入示例</button>
+            </div>
+          </form>
+
+          <div class="list-block">
+            <h3>草稿与发布状态</h3>
+            <div id="draftList" class="stack-list"></div>
+          </div>
+        </article>
+
+        <article class="panel comments-panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-kicker">02</p>
+              <h2>互动评论</h2>
+            </div>
+            <button id="refreshCommentsBtn" class="ghost-btn" type="button">刷新</button>
+          </div>
+          <p class="hint">当前按个人 IP 口语风格生成回复建议。真实抖音评论接口需等开放平台权限通过。</p>
+          <div id="commentsList" class="comment-list"></div>
+        </article>
+
+        <article class="panel jimeng-panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-kicker">03</p>
+              <h2>即梦能力评估</h2>
+            </div>
+            <button id="refreshEvaluationsBtn" class="ghost-btn" type="button">刷新</button>
+          </div>
+
+          <form id="jimengForm" class="form-grid">
+            <label>
+              模式
+              <select name="mode">
+                <option value="digital-human-fast">数字人快速模式</option>
+                <option value="omnihuman-1.5">OmniHuman1.5</option>
+                <option value="video-3-pro">视频生成 3.0 Pro</option>
+                <option value="action-copy-2">动作模仿 2.0</option>
+                <option value="marketing-video-agent">小云雀营销成片 Agent</option>
+              </select>
+            </label>
+            <label>
+              是否适合个人 IP
+              <select name="fitForPersonalIp">
+                <option value="unknown">待判断</option>
+                <option value="yes">适合</option>
+                <option value="partial">部分适合</option>
+                <option value="no">不适合</option>
+              </select>
+            </label>
+            <label>
+              耗时（秒）
+              <input name="latencySeconds" type="number" min="0" placeholder="180" />
+            </label>
+            <label>
+              成本估算（元）
+              <input name="costEstimate" type="number" min="0" step="0.01" placeholder="1.20" />
+            </label>
+            <label>
+              输出时长（秒）
+              <input name="durationSeconds" type="number" min="0" placeholder="15" />
+            </label>
+            <label>
+              质量评分
+              <input name="qualityScore" type="number" min="0" max="5" step="1" placeholder="4" />
+            </label>
+            <label class="span-2">
+              测试备注
+              <textarea name="notes" rows="3" placeholder="人物一致性、嘴型同步、成片质感、是否适合批量生产。"></textarea>
+            </label>
+            <div class="span-2 action-row">
+              <button class="primary-btn" type="submit">记录评估</button>
+            </div>
+          </form>
+
+          <div class="list-block">
+            <h3>评估记录</h3>
+            <div id="evaluationList" class="stack-list"></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel notes-panel">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">04</p>
+            <h2>真实接入缺口</h2>
+          </div>
+        </div>
+        <div class="risk-grid">
+          <div>
+            <strong>抖音发布</strong>
+            <p>需要开放平台应用、OAuth 授权、视频发布权限。当前个人开发者认证已申请，今天先用 mock 适配器。</p>
+          </div>
+          <div>
+            <strong>评论管理</strong>
+            <p>需要评论管理权限，且只能回复授权账号自己发布的视频评论。</p>
+          </div>
+          <div>
+            <strong>即梦接入</strong>
+            <p>优先测试数字人快速模式、OmniHuman1.5、小云雀营销成片 Agent，再决定是否替换 Wan 链路。</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" hidden></div>
+    <script src="./app.js"></script>
+  </body>
+</html>
+

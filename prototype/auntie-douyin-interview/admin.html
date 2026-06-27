@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>评论问卷提交记录</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <p class="eyebrow">INTERVIEW ADMIN</p>
+      <h1>评论问卷提交记录</h1>
+      <p class="lead">这里能看到真实填写和合成角色填写；评论运营模块会优先读取融合策略。</p>
+      <button id="refreshBtn" class="primary">刷新</button>
+
+      <section class="case">
+        <div class="case-title">融合策略</div>
+        <p class="lead">从真实问卷和合成角色问卷提炼，作为评论回复策略底座。</p>
+        <button id="fuseBtn" class="ghost">重新融合策略</button>
+        <div id="strategy"></div>
+      </section>
+
+      <div id="list"></div>
+    </main>
+    <script src="./admin.js"></script>
+  </body>
+</html>

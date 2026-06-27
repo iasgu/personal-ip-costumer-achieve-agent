@@ -1,0 +1,90 @@
+DashScope API Key 配置与交付说明
+
+一、核心原则
+
+不要把个人 DashScope API Key 写进交付压缩包、前端代码、README 示例或任何会发给客户的文件里。
+
+DashScope API Key 等同于模型调用权限，泄露后可能产生不可控调用费用，也会暴露账号资源。
+
+
+二、本机开发和测试
+
+适用场景：
+自己在本机调试、跑全流程、验证模型调用。
+
+做法：
+1. 在项目目录复制 .env.example 为 .env。
+2. 在 .env 里填写：
+
+DASHSCOPE_API_KEY=你的百炼/DashScope API Key
+
+3. MODEL_API_KEY 可以留空，后端会自动复用 DASHSCOPE_API_KEY。
+
+注意：
+.env 只保留在本机，不进入压缩包，不提交代码仓库，不发给客户。
+
+
+三、发给别人本地运行
+
+适用场景：
+把 Demo 压缩包交给客户、合作伙伴或测试人员，让他们在自己的电脑上运行。
+
+做法：
+1. 压缩包里只放 .env.example，不放 .env。
+2. 对方解压后运行 setup-env.cmd。
+3. 对方输入自己的阿里云百炼 / DashScope API Key。
+4. 脚本会自动生成 .env。
+5. 再运行 run-server.cmd 或 node server.js。
+
+这样对方可以正常连接模型，同时不会使用你的账号额度。
+
+
+四、客户免配置直接试用
+
+适用场景：
+希望客户打开一个网页链接就能用，不让客户自己填 API Key。
+
+正确做法：
+把项目部署到服务器上，DashScope API Key 只配置在服务器环境变量或服务器 .env 中。
+
+客户访问前端页面，前端只请求你的后端接口。浏览器端永远不暴露 DashScope API Key。
+
+不要把 API Key 写进前端 JS、HTML、本地配置包或网页源码。
+
+
+五、如果必须临时使用你的 Key 给别人演示
+
+只建议使用“演示专用 Key”，不要使用主账号 Key。
+
+演示专用 Key 的建议规则：
+1. 单独创建，不和正式业务共用。
+2. 设置额度、预算或用量监控。
+3. 设置访问频率限制。
+4. 演示结束后立即禁用或删除。
+5. 不通过微信、文档、压缩包明文长期保存。
+
+
+六、当前项目相关变量
+
+主要变量：
+
+DASHSCOPE_API_KEY=百炼/DashScope API Key
+MODEL_API_KEY=可留空，默认复用 DASHSCOPE_API_KEY
+MODEL_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
+MODEL_NAME=qwen3.7-plus
+MODEL_MULTIMODAL_NAME=qwen3.7-plus
+ASR_MODEL_NAME=qwen3-asr-flash
+QWEN_TTS_MODEL=qwen-tts-latest
+WAN_I2V_MODEL=wan2.7-i2v
+
+
+七、交付前检查
+
+每次打包前检查：
+
+1. 压缩包里没有 .env。
+2. 压缩包里没有真实 sk- 开头的 API Key。
+3. 压缩包里没有用户上传的照片、音频、视频。
+4. 压缩包里没有生成的成片、日志、浏览器登录态目录。
+5. 压缩包里包含 .env.example、setup-env.cmd、run-server.cmd 和本说明文档。
+

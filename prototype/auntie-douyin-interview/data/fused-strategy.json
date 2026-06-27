@@ -1,0 +1,599 @@
+{
+  "generatedAt": "2026-06-25T02:06:21.244Z",
+  "submissionCount": 35,
+  "realCount": 4,
+  "syntheticCount": 18,
+  "legacySyntheticCount": 13,
+  "modelGeneratedCount": 0,
+  "sources": [
+    {
+      "id": "interview_mqs2l404_a73584",
+      "interviewee": "舅妈",
+      "synthetic": false,
+      "human": true,
+      "modelGenerated": false,
+      "model": "",
+      "createdAt": "2026-06-24T12:49:07.996Z"
+    },
+    {
+      "id": "interview_mqs1hx93_fbfff3",
+      "interviewee": "妈妈",
+      "synthetic": false,
+      "human": true,
+      "modelGenerated": false,
+      "model": "",
+      "createdAt": "2026-06-24T12:18:39.639Z"
+    },
+    {
+      "id": "interview_mqs1hwxq_0f5ce0",
+      "interviewee": "妈妈",
+      "synthetic": false,
+      "human": true,
+      "modelGenerated": false,
+      "model": "",
+      "createdAt": "2026-06-24T12:18:39.230Z"
+    },
+    {
+      "id": "interview_mqs1a2r6_966984",
+      "interviewee": "爸爸",
+      "synthetic": false,
+      "human": true,
+      "modelGenerated": false,
+      "model": "",
+      "createdAt": "2026-06-24T12:12:33.547Z"
+    },
+    {
+      "id": "interview_mqrtcetf_84297e",
+      "interviewee": "价格敏感型用户",
+      "synthetic": true,
+      "human": false,
+      "modelGenerated": false,
+      "model": "local-fallback",
+      "createdAt": "2026-06-24T08:30:25.539Z"
+    },
+    {
+      "id": "interview_mqrtcet7_179467",
+      "interviewee": "宝妈生活号观众",
+      "synthetic": true,
+      "human": false,
+      "modelGenerated": false,
+      "model": "local-fallback",
+      "createdAt": "2026-06-24T08:30:25.532Z"
+    },
+    {
+      "id": "interview_mqrtcesz_3bee4b",
+      "interviewee": "律师个人IP",
+      "synthetic": true,
+      "human": false,
+      "modelGenerated": false,
+      "model": "local-fallback",
+      "createdAt": "2026-06-24T08:30:25.523Z"
+    },
+    {
+      "id": "interview_mqrtcest_371418",
+      "interviewee": "医美咨询师",
+      "synthetic": true,
+      "human": false,
+      "modelGenerated": false,
+      "model": "local-fallback",
+      "createdAt": "2026-06-24T08:30:25.517Z"
+    },
+    {
+      "id": "interview_mqrtcesm_c2e2dd",
+      "interviewee": "传统制造业销售",
+      "synthetic": true,
+      "human": false,
+      "modelGenerated": false,
+      "model": "local-fallback",
+      "createdAt": "2026-06-24T08:30:25.510Z"
+    },
+    {
+      "id": "interview_mqrtcesg_f5b285",
+      "interviewee": "直播间运营",
+      "synthetic": true,
+      "human": false,
+      "modelGenerated": false,
+      "model": "local-fallback",
+      "createdAt": "2026-06-24T08:30:25.504Z"
+    },
+    {
+      "id": "interview_mqrtcesa_359590",
+      "interviewee": "企业老板助理",
+      "synthetic": true,
+      "human": false,
+      "modelGenerated": false,
+      "model": "local-fallback",
+      "createdAt": "2026-06-24T08:30:25.498Z"
+    },
+    {
+      "id": "interview_mqrtces4_8f70b5",
+      "interviewee": "本地探店达人",
+      "synthetic": true,
+      "human": false,
+      "modelGenerated": false,
+      "model": "local-fallback",
+      "createdAt": "2026-06-24T08:30:25.492Z"
+    },
+    {
+      "id": "interview_mqrtcerx_46fd0c",
+      "interviewee": "小红书转抖音用户",
+      "synthetic": true,
+      "human": false,
+      "modelGenerated": false,
+      "model": "local-fallback",
+      "createdAt": "2026-06-24T08:30:25.485Z"
+    },
+    {
+      "id": "interview_mqrtcero_ac970f",
+      "interviewee": "知识付费博主",
+      "synthetic": true,
+      "human": false,
+      "modelGenerated": false,
+      "model": "local-fallback",
+      "createdAt": "2026-06-24T08:30:25.476Z"
+    },
+    {
+      "id": "interview_mqrtceri_7421da",
+      "interviewee": "健身私教",
+      "synthetic": true,
+      "human": false,
+      "modelGenerated": false,
+      "model": "local-fallback",
+      "createdAt": "2026-06-24T08:30:25.470Z"
+    },
+    {
+      "id": "interview_mqrtcerc_046600",
+      "interviewee": "教培机构校长",
+      "synthetic": true,
+      "human": false,
+      "modelGenerated": false,
+      "model": "local-fallback",
+      "createdAt": "2026-06-24T08:30:25.464Z"
+    },
+    {
+      "id": "interview_mqrtcer6_61f04e",
+      "interviewee": "同城房产中介",
+      "synthetic": true,
+      "human": false,
+      "modelGenerated": false,
+      "model": "local-fallback",
+      "createdAt": "2026-06-24T08:30:25.458Z"
+    },
+    {
+      "id": "interview_mqrtceqz_378adf",
+      "interviewee": "刚起号的新手宝妈",
+      "synthetic": true,
+      "human": false,
+      "modelGenerated": false,
+      "model": "local-fallback",
+      "createdAt": "2026-06-24T08:30:25.451Z"
+    },
+    {
+      "id": "interview_mqrt6c60_928449",
+      "interviewee": "餐饮店老板",
+      "synthetic": true,
+      "human": false,
+      "modelGenerated": false,
+      "model": "local-fallback",
+      "createdAt": "2026-06-24T08:25:42.169Z"
+    },
+    {
+      "id": "interview_mqrt5cqb_c5ef9b",
+      "interviewee": "抖音重度中年用户",
+      "synthetic": true,
+      "human": false,
+      "modelGenerated": false,
+      "model": "local-fallback",
+      "createdAt": "2026-06-24T08:24:56.244Z"
+    },
+    {
+      "id": "interview_mqrt5cpz_bb21a2",
+      "interviewee": "美业店长",
+      "synthetic": true,
+      "human": false,
+      "modelGenerated": false,
+      "model": "local-fallback",
+      "createdAt": "2026-06-24T08:24:56.231Z"
+    },
+    {
+      "id": "interview_mqrt5cpq_764b5a",
+      "interviewee": "餐饮店老板",
+      "synthetic": true,
+      "human": false,
+      "modelGenerated": false,
+      "model": "local-fallback",
+      "createdAt": "2026-06-24T08:24:56.223Z"
+    },
+    {
+      "id": "interview_mqrt0uhz_ad161a",
+      "interviewee": "抖音重度中年用户",
+      "synthetic": false,
+      "human": false,
+      "modelGenerated": false,
+      "model": "",
+      "createdAt": "2026-06-24T08:21:25.991Z"
+    },
+    {
+      "id": "interview_mqrt0uhv_586cf8",
+      "interviewee": "美业店长",
+      "synthetic": false,
+      "human": false,
+      "modelGenerated": false,
+      "model": "",
+      "createdAt": "2026-06-24T08:21:25.987Z"
+    },
+    {
+      "id": "interview_mqrt0uho_04d0ae",
+      "interviewee": "餐饮店老板",
+      "synthetic": false,
+      "human": false,
+      "modelGenerated": false,
+      "model": "",
+      "createdAt": "2026-06-24T08:21:25.980Z"
+    },
+    {
+      "id": "interview_mqrt02m8_efeb08",
+      "interviewee": "抖音重度中年用户",
+      "synthetic": false,
+      "human": false,
+      "modelGenerated": false,
+      "model": "",
+      "createdAt": "2026-06-24T08:20:49.856Z"
+    },
+    {
+      "id": "interview_mqrsyanq_4d521d",
+      "interviewee": "美业店长",
+      "synthetic": false,
+      "human": false,
+      "modelGenerated": false,
+      "model": "",
+      "createdAt": "2026-06-24T08:19:26.966Z"
+    },
+    {
+      "id": "interview_mqrswi0g_7ac817",
+      "interviewee": "餐饮店老板",
+      "synthetic": false,
+      "human": false,
+      "modelGenerated": false,
+      "model": "",
+      "createdAt": "2026-06-24T08:18:03.191Z"
+    },
+    {
+      "id": "interview_mqrrby0n_14d114",
+      "interviewee": "潜在合作方",
+      "synthetic": false,
+      "human": false,
+      "modelGenerated": false,
+      "model": "",
+      "createdAt": "2026-06-24T07:34:04.535Z"
+    },
+    {
+      "id": "interview_mqrrby0f_79548b",
+      "interviewee": "挑刺型抖音用户",
+      "synthetic": false,
+      "human": false,
+      "modelGenerated": false,
+      "model": "",
+      "createdAt": "2026-06-24T07:34:04.527Z"
+    }
+  ],
+  "sections": {
+    "rules": [
+      {
+        "text": "优先回复有明确需求、想试、问案例、问账号诊断、问联系方式的评论",
+        "count": 33,
+        "realCount": 4,
+        "syntheticCount": 29,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 4,
+        "score": 57,
+        "sources": [
+          "interview_mqs2l404_a73584",
+          "interview_mqs1hx93_fbfff3",
+          "interview_mqs1hwxq_0f5ce0",
+          "interview_mqs1a2r6_966984",
+          "interview_mqrtcetf_84297e",
+          "interview_mqrtcet7_179467",
+          "interview_mqrtcesz_3bee4b",
+          "interview_mqrtcest_371418"
+        ]
+      },
+      {
+        "text": "表达要像真人生活经验，不要一上来像广告",
+        "count": 1,
+        "realCount": 0,
+        "syntheticCount": 1,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 0,
+        "score": 1,
+        "sources": [
+          "interview_mqrplu5w_bcedd6"
+        ]
+      },
+      {
+        "text": "内容要留一个能让人接话的问题，评论区才会动",
+        "count": 1,
+        "realCount": 0,
+        "syntheticCount": 1,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 0,
+        "score": 1,
+        "sources": [
+          "interview_mqrpp4rf_190d79"
+        ]
+      },
+      {
+        "text": "开头要有反差、好奇点或没见过的画面，先让人停下来",
+        "count": 1,
+        "realCount": 0,
+        "syntheticCount": 1,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 0,
+        "score": 1,
+        "sources": [
+          "interview_mqrplu5w_bcedd6"
+        ]
+      }
+    ],
+    "leadSignals": [
+      {
+        "text": "问联系、问案例、愿意留链接/账号的评论，是高价值线索",
+        "count": 33,
+        "realCount": 4,
+        "syntheticCount": 29,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 4,
+        "score": 57,
+        "sources": [
+          "interview_mqs2l404_a73584",
+          "interview_mqs1hx93_fbfff3",
+          "interview_mqs1hwxq_0f5ce0",
+          "interview_mqs1a2r6_966984",
+          "interview_mqrtcetf_84297e",
+          "interview_mqrtcet7_179467",
+          "interview_mqrtcesz_3bee4b",
+          "interview_mqrtcest_371418"
+        ]
+      }
+    ],
+    "negativeHandling": [
+      {
+        "text": "质疑类评论先承认担心合理，再给测试方式，不要对怼",
+        "count": 31,
+        "realCount": 4,
+        "syntheticCount": 27,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 4,
+        "score": 55,
+        "sources": [
+          "interview_mqs2l404_a73584",
+          "interview_mqs1hx93_fbfff3",
+          "interview_mqs1hwxq_0f5ce0",
+          "interview_mqs1a2r6_966984",
+          "interview_mqrtcetf_84297e",
+          "interview_mqrtcet7_179467",
+          "interview_mqrtcesz_3bee4b",
+          "interview_mqrtcest_371418"
+        ]
+      },
+      {
+        "text": "攻击性评论不建议认真争辩，可忽略、隐藏或只做低情绪回应",
+        "count": 31,
+        "realCount": 3,
+        "syntheticCount": 28,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 3,
+        "score": 49,
+        "sources": [
+          "interview_mqs2l404_a73584",
+          "interview_mqs1hx93_fbfff3",
+          "interview_mqs1hwxq_0f5ce0",
+          "interview_mqrtcetf_84297e",
+          "interview_mqrtcet7_179467",
+          "interview_mqrtcesz_3bee4b",
+          "interview_mqrtcest_371418",
+          "interview_mqrtcesm_c2e2dd"
+        ]
+      },
+      {
+        "text": "质疑类评论先共情，再给低门槛测试方式，避免争辩",
+        "count": 1,
+        "realCount": 0,
+        "syntheticCount": 1,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 0,
+        "score": 1,
+        "sources": [
+          "interview_mqrrby0n_14d114"
+        ]
+      }
+    ],
+    "replyStyle": [
+      {
+        "text": "回复要像真人说话，短句、口语、别像客服模板",
+        "count": 30,
+        "realCount": 3,
+        "syntheticCount": 27,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 3,
+        "score": 48,
+        "sources": [
+          "interview_mqs1hx93_fbfff3",
+          "interview_mqs1hwxq_0f5ce0",
+          "interview_mqs1a2r6_966984",
+          "interview_mqrtcetf_84297e",
+          "interview_mqrtcet7_179467",
+          "interview_mqrtcesz_3bee4b",
+          "interview_mqrtcest_371418",
+          "interview_mqrtcesm_c2e2dd"
+        ]
+      },
+      {
+        "text": "价格类评论先问需求或引导试一条，不要上来硬报价",
+        "count": 28,
+        "realCount": 0,
+        "syntheticCount": 28,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 0,
+        "score": 28,
+        "sources": [
+          "interview_mqrtcetf_84297e",
+          "interview_mqrtcet7_179467",
+          "interview_mqrtcesz_3bee4b",
+          "interview_mqrtcest_371418",
+          "interview_mqrtcesm_c2e2dd",
+          "interview_mqrtcesg_f5b285",
+          "interview_mqrtcesa_359590",
+          "interview_mqrtces4_8f70b5"
+        ]
+      },
+      {
+        "text": "素材类问题要说清楚：可以用自己的头像和声音，但建议先测 15 秒效果",
+        "count": 27,
+        "realCount": 0,
+        "syntheticCount": 27,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 0,
+        "score": 27,
+        "sources": [
+          "interview_mqrtcetf_84297e",
+          "interview_mqrtcet7_179467",
+          "interview_mqrtcesz_3bee4b",
+          "interview_mqrtcest_371418",
+          "interview_mqrtcesm_c2e2dd",
+          "interview_mqrtcesg_f5b285",
+          "interview_mqrtcesa_359590",
+          "interview_mqrtces4_8f70b5"
+        ]
+      },
+      {
+        "text": "回复要短、像真人，不夸大承诺，尽量引导先测一版",
+        "count": 2,
+        "realCount": 1,
+        "syntheticCount": 1,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 1,
+        "score": 8,
+        "sources": [
+          "interview_mqs2l404_a73584",
+          "interview_mqrplu5w_bcedd6"
+        ]
+      },
+      {
+        "text": "价格类问题先引导试用或看效果，不要上来硬报价",
+        "count": 1,
+        "realCount": 0,
+        "syntheticCount": 1,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 0,
+        "score": 1,
+        "sources": [
+          "interview_mqrpp4rf_190d79"
+        ]
+      }
+    ],
+    "avoid": [
+      {
+        "text": "评论区避免直接发联系方式，可用“主页/私信/先留链接我看下”这类更安全表达",
+        "count": 30,
+        "realCount": 2,
+        "syntheticCount": 28,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 2,
+        "score": 42,
+        "sources": [
+          "interview_mqs2l404_a73584",
+          "interview_mqs1a2r6_966984",
+          "interview_mqrtcetf_84297e",
+          "interview_mqrtcet7_179467",
+          "interview_mqrtcesz_3bee4b",
+          "interview_mqrtcest_371418",
+          "interview_mqrtcesm_c2e2dd",
+          "interview_mqrtcesg_f5b285"
+        ]
+      },
+      {
+        "text": "回复里不要承诺必爆、保证涨粉、稳赚等绝对结果",
+        "count": 25,
+        "realCount": 0,
+        "syntheticCount": 25,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 0,
+        "score": 25,
+        "sources": [
+          "interview_mqrtcetf_84297e",
+          "interview_mqrtcet7_179467",
+          "interview_mqrtcesz_3bee4b",
+          "interview_mqrtcest_371418",
+          "interview_mqrtcesm_c2e2dd",
+          "interview_mqrtcesg_f5b285",
+          "interview_mqrtcesa_359590",
+          "interview_mqrtces4_8f70b5"
+        ]
+      },
+      {
+        "text": "避免联系方式外露、绝对承诺、客服腔和机械复制",
+        "count": 2,
+        "realCount": 2,
+        "syntheticCount": 0,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 2,
+        "score": 14,
+        "sources": [
+          "interview_mqs1hx93_fbfff3",
+          "interview_mqs1hwxq_0f5ce0"
+        ]
+      },
+      {
+        "text": "避免太像广告、太假、太长、太空泛",
+        "count": 1,
+        "realCount": 0,
+        "syntheticCount": 1,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 0,
+        "score": 1,
+        "sources": [
+          "interview_mqrpp4rf_190d79"
+        ]
+      },
+      {
+        "text": "开头不要铺垫太久，前 3 秒不能废话",
+        "count": 1,
+        "realCount": 0,
+        "syntheticCount": 1,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 0,
+        "score": 1,
+        "sources": [
+          "interview_mqrplu5w_bcedd6"
+        ]
+      },
+      {
+        "text": "AI 视频要避免脸僵、嘴型怪、语气太机械",
+        "count": 1,
+        "realCount": 0,
+        "syntheticCount": 1,
+        "modelGeneratedCount": 0,
+        "humanRecentCount": 0,
+        "score": 1,
+        "sources": [
+          "interview_mqrplu5w_bcedd6"
+        ]
+      }
+    ]
+  },
+  "hints": [
+    "优先回复有明确需求、想试、问案例、问账号诊断、问联系方式的评论",
+    "表达要像真人生活经验，不要一上来像广告",
+    "问联系、问案例、愿意留链接/账号的评论，是高价值线索",
+    "质疑类评论先承认担心合理，再给测试方式，不要对怼",
+    "攻击性评论不建议认真争辩，可忽略、隐藏或只做低情绪回应",
+    "回复要像真人说话，短句、口语、别像客服模板",
+    "评论区避免直接发联系方式，可用“主页/私信/先留链接我看下”这类更安全表达"
+  ],
+  "summary": {
+    "priority": "优先回复有明确需求、试用、案例、账号诊断、合作意向的评论。",
+    "risk": "对质疑类先共情再给测试路径；绝不承诺涨粉、收益、百分百效果，也不在评论区暴露联系方式。",
+    "style": "偏个人IP口语，短句、像真人，不要客服腔，尽量引导先测一条。"
+  }
+}

@@ -1,0 +1,114 @@
+<view class="page">
+  <view class="eyebrow">WORKBENCH</view>
+  <view class="title">个人IP智能体控制台</view>
+  <view class="subtitle">首屏直接放四个模块入口，生成只是其中一块。</view>
+
+  <view class="module-grid">
+    <view class="module-card active" bindtap="switchModule" data-module="create">
+      <view class="module-icon">✎</view>
+      <view class="module-kicker">01</view>
+      <view class="module-title">生成</view>
+      <view class="module-desc">头像、声音、抖音链接，先做发布草稿。</view>
+    </view>
+    <view class="module-card" bindtap="switchModule" data-module="publish">
+      <view class="module-icon">↗</view>
+      <view class="module-kicker">02</view>
+      <view class="module-title">发布</view>
+      <view class="module-desc">检查草稿、复制文案、手动确认发布。</view>
+    </view>
+    <view class="module-card" bindtap="switchModule" data-module="comments">
+      <view class="module-icon">◎</view>
+      <view class="module-kicker">03</view>
+      <view class="module-title">互动</view>
+      <view class="module-desc">拉评论、生成建议、人工确认回复。</view>
+    </view>
+    <view class="module-card" bindtap="switchModule" data-module="profile">
+      <view class="module-icon">⚙</view>
+      <view class="module-kicker">04</view>
+      <view class="module-title">我的</view>
+      <view class="module-desc">保存人设、回复风格和转化产品。</view>
+    </view>
+  </view>
+
+  <view class="card workflow-card">
+    <view class="step">
+      <view class="step-no">01</view>
+      <view class="step-main">
+        <view class="step-title">头像/真人形象</view>
+        <view class="step-desc">{{avatarName || "支持 jpg/png，建议清晰正脸"}}</view>
+      </view>
+      <button class="plain-btn small-btn" bindtap="chooseAvatar">◻ 选择</button>
+    </view>
+
+    <view class="step">
+      <view class="step-no">02</view>
+      <view class="step-main">
+        <view class="step-title">声音样本</view>
+        <view class="step-desc">{{voiceName || "可录 10 秒人声，也可先用标准音色"}}</view>
+      </view>
+      <button class="plain-btn small-btn" bindtap="chooseVoice">◉ 录制</button>
+    </view>
+
+    <view class="step">
+      <view class="step-no">03</view>
+      <view class="step-main">
+        <view class="step-title">抖音链接</view>
+        <view class="step-desc">复制口令、短链、视频页链接都可以先粘贴</view>
+      </view>
+    </view>
+    <input class="input link-input" value="{{douyinUrl}}" bindinput="onInput" data-key="douyinUrl" placeholder="https://www.douyin.com/video/..." />
+
+    <view class="step output-step">
+      <view class="step-no">04</view>
+      <view class="step-main">
+        <view class="step-title">输出视频</view>
+        <view class="step-desc">{{job ? "发布草稿已生成，可去发布页确认" : "系统会生成标题、脚本、话题和视频占位"}}</view>
+      </view>
+      <button class="primary-btn action-btn" loading="{{submitting}}" bindtap="submitJob">▶ 生成</button>
+    </view>
+  </view>
+
+  <view class="card result-card" tt:if="{{job}}">
+    <view class="card-title">{{job.title}}</view>
+    <view class="script">{{job.script}}</view>
+    <view class="tag-row">
+      <text class="tag" tt:for="{{job.hashtags}}" tt:key="*this">#{{item}}</text>
+    </view>
+    <button class="primary-btn submit-btn" bindtap="goPublish">↗ 去发布确认</button>
+  </view>
+
+  <view class="collapse-card">
+    <view class="collapse-head" bindtap="togglePanel" data-key="analysisOpen">
+      <view class="collapse-title">展开查看分析过程和内容包</view>
+      <view class="collapse-icon">{{analysisOpen ? "-" : "+"}}</view>
+    </view>
+    <view class="collapse-body" tt:if="{{analysisOpen}}">
+      <view class="info-row"><text>源链接</text><text>{{job && job.analysis ? job.analysis.sourceUrl : douyinUrl || "未提交"}}</text></view>
+      <view class="info-row"><text>账号定位</text><text>{{persona}}</text></view>
+      <view class="info-row"><text>生成模型</text><text>{{job && job.generation ? job.generation.provider : "mock"}} / {{job && job.generation ? job.generation.model : "local-rule"}}</text></view>
+      <view class="info-block">{{job ? job.caption : "生成后这里会展示发布文案。"}}</view>
+      <view class="info-block" tt:for="{{job && job.hooks ? job.hooks : []}}" tt:key="*this">{{item}}</view>
+    </view>
+  </view>
+
+  <view class="collapse-card">
+    <view class="collapse-head" bindtap="togglePanel" data-key="advancedOpen">
+      <view class="collapse-title">高级设置</view>
+      <view class="collapse-icon">{{advancedOpen ? "-" : "+"}}</view>
+    </view>
+    <view class="collapse-body" tt:if="{{advancedOpen}}">
+      <view class="field">
+        <text class="label">个人定位</text>
+        <input class="input" value="{{persona}}" bindinput="onInput" data-key="persona" />
+      </view>
+      <view class="field">
+        <text class="label">转化产品</text>
+        <textarea class="textarea" value="{{offer}}" bindinput="onInput" data-key="offer"></textarea>
+      </view>
+      <view class="field">
+        <text class="label">源视频口播/观察补充</text>
+        <textarea class="textarea" value="{{sourceSummary}}" bindinput="onInput" data-key="sourceSummary" placeholder="可选：粘贴字幕、口播或人工观察。"></textarea>
+      </view>
+    </view>
+  </view>
+</view>

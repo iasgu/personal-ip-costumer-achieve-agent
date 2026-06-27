@@ -1,0 +1,53 @@
+{
+  "ok": true,
+  "provider": "wan2.7-i2v",
+  "model": "wan2.7-i2v-2026-04-25",
+  "status": "PENDING",
+  "taskId": "aa6b6353-bd00-482b-aae2-b7ca30fdc200",
+  "requestId": "91558c3f-2763-9b00-be12-d6d5dad359aa",
+  "url": "",
+  "videoUrl": "",
+  "localVideoUrl": "",
+  "localVideoPath": "",
+  "localVideoError": "",
+  "usage": null,
+  "parameters": {
+    "resolution": "720P",
+    "duration": 15,
+    "prompt_extend": true,
+    "watermark": false
+  },
+  "durationPlan": {
+    "sourceDurationSeconds": 57.2,
+    "explicitDurationSeconds": 15,
+    "manualDurationOverride": false,
+    "requestedDurationSeconds": 57.2,
+    "outputDurationSeconds": 15,
+    "minSingleSegmentSeconds": 2,
+    "maxSingleSegmentSeconds": 15,
+    "followsSourceDuration": false,
+    "needsSegmentation": true,
+    "estimatedSegments": 4,
+    "reason": "原视频超过 wan2.7-i2v 单段 15 秒上限，本次先生成首段，后续需要分段生成并拼接。"
+  },
+  "inputs": {
+    "image": {
+      "assetId": "video-standard-a6af16c0",
+      "name": "standard-avatar-wikimedia.jpg",
+      "ossUrl": "oss://dashscope-instant/a4b12fdbcd899679777bf98cc6cf1187/2026-06-23/f7848958-e671-99c7-b86e-9d9387a50a35/video-standard-a6af16c0.jpg",
+      "expiresAt": "2026-06-25T05:02:18.579Z"
+    },
+    "audio": {
+      "assetId": "voice-tts-6a09e6e3",
+      "name": "qwen-tts-1782190937717.wav",
+      "ossUrl": "oss://dashscope-instant/a4b12fdbcd899679777bf98cc6cf1187/2026-06-23/6a633ab9-5e49-98f6-b053-46d17c6ed0d3/voice-wan-1ac6a48c.wav",
+      "expiresAt": "2026-06-25T05:02:18.696Z",
+      "source": "generated-audio",
+      "preparedAssetId": "voice-wan-1ac6a48c",
+      "preparedName": "qwen-tts-1782190937717-wan-15s.wav",
+      "preparedDurationSeconds": 15,
+      "preparedFrom": "voice-tts-6a09e6e3"
+    }
+  },
+  "note": "wan2.7-i2v 任务已提交；配置 WAN_S2V_POLL_TIMEOUT_MS 可在服务端等待结果，或用任务 ID 查询。"
+}

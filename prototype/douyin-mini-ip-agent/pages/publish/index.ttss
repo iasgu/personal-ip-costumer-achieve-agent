@@ -1,0 +1,83 @@
+.submit-btn {
+  margin-top: 28rpx;
+}
+
+.mini-hero {
+  margin-top: 22rpx;
+  padding: 18rpx 20rpx;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  border: 1rpx solid #dce5f2;
+  background: #f8fbff;
+}
+
+.mini-hero-icon {
+  width: 52rpx;
+  height: 52rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4169e1;
+  background: #eef3fa;
+  font-size: 28rpx;
+  font-weight: 900;
+}
+
+.mini-hero-title {
+  color: #172033;
+  font-size: 28rpx;
+  font-weight: 900;
+}
+
+.mini-hero-desc {
+  margin-top: 4rpx;
+  color: #64748b;
+  font-size: 22rpx;
+}
+
+.script-input {
+  min-height: 220rpx;
+}
+
+.check-item {
+  display: flex;
+  gap: 14rpx;
+  align-items: flex-start;
+  padding: 18rpx 0;
+  border-bottom: 1rpx solid #edf2f8;
+  color: #2e3a4f;
+  line-height: 1.55;
+}
+
+.check-item:last-child {
+  border-bottom: 0;
+}
+
+.check-level {
+  width: 88rpx;
+  min-height: 42rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #32558f;
+  background: #eef3fa;
+  font-size: 22rpx;
+  font-weight: 900;
+  flex: 0 0 auto;
+}
+
+.check-item.error .check-level {
+  color: #b42318;
+  background: #fff1f0;
+}
+
+.check-item.warn .check-level {
+  color: #925400;
+  background: #fff7e6;
+}
+
+.check-item.pass .check-level {
+  color: #1f7a4d;
+  background: #ecfdf3;
+}

@@ -1,0 +1,161 @@
+<view class="page">
+  <view class="eyebrow">PROFILE</view>
+  <view class="title">账号配置与抖音授权</view>
+  <view class="subtitle">小程序只保存轻量配置；token、模型 Key 和平台密钥都交给后端保存。</view>
+
+  <view class="mini-hero">
+    <view class="mini-hero-icon">AI</view>
+    <view>
+      <view class="mini-hero-title">配置中心</view>
+      <view class="mini-hero-desc">连接后端、授权抖音、测试真实视频能力。</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">后端连接</view>
+    <view class="field">
+      <text class="label">后端 API 地址</text>
+      <input class="input" value="{{apiBaseUrl}}" bindinput="onInput" data-key="apiBaseUrl" placeholder="https://xxx.service.douyincloud.run" />
+    </view>
+    <button class="plain-btn submit-btn" bindtap="saveApiBaseUrl">保存并检测</button>
+  </view>
+
+  <view class="card">
+    <view class="card-title">抖音授权</view>
+    <view class="auth-state {{authState.status}}">{{authState.message}}</view>
+    <view class="button-row">
+      <button class="secondary-btn" bindtap="loadAuthState">刷新状态</button>
+      <button class="primary-btn" bindtap="connectDouyinAuth">拉起授权</button>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">真实视频接口测试</view>
+    <view class="card-desc">先用真实 video_id / item_id 测试转换和数据查询，再去评论页测试评论列表与回复。</view>
+    <view class="field">
+      <text class="label">video_id</text>
+      <input class="input" value="{{testVideoId}}" bindinput="onInput" data-key="testVideoId" placeholder="从真实抖音视频链接中解析或后台复制" />
+    </view>
+    <button class="secondary-btn submit-btn" loading="{{testing}}" bindtap="testVideoConvert">测试 video_id 转 item_id</button>
+    <view class="field">
+      <text class="label">item_id</text>
+      <input class="input" value="{{testItemId}}" bindinput="onInput" data-key="testItemId" placeholder="用于查询视频数据和评论" />
+    </view>
+    <button class="secondary-btn submit-btn" loading="{{testing}}" bindtap="testVideoQuery">测试视频数据查询</button>
+  </view>
+
+  <view class="card">
+    <view class="card-title">个人IP配置</view>
+    <view class="field">
+      <text class="label">人设</text>
+      <input class="input" value="{{persona}}" bindinput="onInput" data-key="persona" />
+    </view>
+    <view class="field">
+      <text class="label">回复风格</text>
+      <textarea class="textarea" value="{{replyStyle}}" bindinput="onInput" data-key="replyStyle"></textarea>
+    </view>
+    <view class="field">
+      <text class="label">转化产品</text>
+      <textarea class="textarea" value="{{offer}}" bindinput="onInput" data-key="offer"></textarea>
+    </view>
+    <button class="primary-btn submit-btn" bindtap="saveProfile">保存配置</button>
+  </view>
+
+  <view class="card">
+    <view class="card-title">粉丝群客服智能体</view>
+    <view class="card-desc">这块就是给你后续人工调策略、调提示词的入口。保存后会同步到本地缓存，也可以直接打后端接口。</view>
+    <view class="status-pill">当前场景：{{customerServiceScene}}</view>
+
+    <view class="field">
+      <text class="label">客服场景名称</text>
+      <input class="input" value="{{customerServiceScene}}" bindinput="onInput" data-key="customerServiceScene" placeholder="抖音粉丝群客服" />
+    </view>
+
+    <view class="field">
+      <text class="label">业务内容</text>
+      <textarea class="textarea" value="{{customerServiceSummary}}" bindinput="onInput" data-key="customerServiceSummary" placeholder="一句话描述这个客服智能体处理什么问题"></textarea>
+    </view>
+
+    <view class="field">
+      <text class="label">业务清单</text>
+      <textarea class="textarea" value="{{customerServiceItemsText}}" bindinput="onInput" data-key="customerServiceItemsText" placeholder="每行一条：产品介绍 / 价格 / 售后 / 预约"></textarea>
+    </view>
+
+    <view class="field">
+      <text class="label">回复规则</text>
+      <textarea class="textarea" value="{{customerServiceRulesText}}" bindinput="onInput" data-key="customerServiceRulesText" placeholder="每行一条回复规则"></textarea>
+    </view>
+
+    <view class="field">
+      <text class="label">人工接管规则</text>
+      <textarea class="textarea" value="{{customerServiceHandoffText}}" bindinput="onInput" data-key="customerServiceHandoffText" placeholder="每行一个需要转人工的场景"></textarea>
+    </view>
+
+    <view class="field">
+      <text class="label">兜底话术</text>
+      <textarea class="textarea" value="{{customerServiceFallback}}" bindinput="onInput" data-key="customerServiceFallback"></textarea>
+    </view>
+
+    <view class="field">
+      <text class="label">提示词</text>
+      <textarea class="textarea" value="{{customerServicePrompt}}" bindinput="onInput" data-key="customerServicePrompt" placeholder="这里就是后续人工调策略的核心入口"></textarea>
+    </view>
+
+    <view class="field">
+      <text class="label">工作时间</text>
+      <view class="button-row">
+        <input class="input" value="{{customerServiceWorkStart}}" bindinput="onInput" data-key="customerServiceWorkStart" placeholder="09:00" />
+        <input class="input" value="{{customerServiceWorkEnd}}" bindinput="onInput" data-key="customerServiceWorkEnd" placeholder="21:00" />
+      </view>
+    </view>
+
+    <view class="field">
+      <text class="label">回复风格</text>
+      <input class="input" value="{{customerServiceTone}}" bindinput="onInput" data-key="customerServiceTone" placeholder="professional / friendly / direct" />
+    </view>
+
+    <view class="field switch-row">
+      <text class="label">人工审核</text>
+      <switch checked="{{customerServiceHumanApproval}}" bindchange="onSwitchChange" data-key="customerServiceHumanApproval" />
+    </view>
+
+    <view class="button-row">
+      <button class="secondary-btn" bindtap="resetCustomerServiceStrategy">恢复默认</button>
+      <button class="primary-btn" loading="{{customerServiceSaving}}" bindtap="saveCustomerServiceStrategy">保存客服策略</button>
+    </view>
+
+    <view class="auth-state {{customerServiceStatus.status}}">{{customerServiceStatus.message}}</view>
+  </view>
+
+  <view class="card">
+    <view class="card-title">能力说明</view>
+    <view class="step">
+      <view class="step-no">01</view>
+      <view class="step-main">
+        <view class="step-title">抖音授权</view>
+        <view class="step-desc">先通过 showDouyinOpenAuth 获取 ticket，再由后端换 access_token。</view>
+      </view>
+    </view>
+    <view class="step">
+      <view class="step-no">02</view>
+      <view class="step-main">
+        <view class="step-title">视频与评论数据</view>
+        <view class="step-desc">授权成功后测试视频数据、评论列表、回复评论。</view>
+      </view>
+    </view>
+    <view class="step">
+      <view class="step-no">03</view>
+      <view class="step-main">
+        <view class="step-title">发布能力</view>
+        <view class="step-desc">发布视频 JSAPI 需要用户手动触发，不能后台静默发布。</view>
+      </view>
+    </view>
+    <view class="step">
+      <view class="step-no">04</view>
+      <view class="step-main">
+        <view class="step-title">客服策略</view>
+        <view class="step-desc">业务内容、回复规则、兜底话术和提示词都可在这里单独调整，后端可直接同步保存。</view>
+      </view>
+    </view>
+  </view>
+</view>

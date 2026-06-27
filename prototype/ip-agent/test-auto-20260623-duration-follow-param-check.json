@@ -1,0 +1,57 @@
+{
+  "ok": true,
+  "status": 200,
+  "data": {
+    "ok": true,
+    "provider": "wan2.7-i2v",
+    "model": "wan2.7-i2v-2026-04-25",
+    "status": "PENDING",
+    "taskId": "d78e29aa-7e55-4acb-91ea-3a334b9e36ff",
+    "requestId": "4cf3a63f-2b2f-9d15-9e13-c1173879a66b",
+    "url": "",
+    "videoUrl": "",
+    "localVideoUrl": "",
+    "localVideoPath": "",
+    "localVideoError": "",
+    "usage": null,
+    "parameters": {
+      "resolution": "720P",
+      "duration": 15,
+      "prompt_extend": true,
+      "watermark": false
+    },
+    "durationPlan": {
+      "sourceDurationSeconds": 14.633333,
+      "explicitDurationSeconds": 10,
+      "manualDurationOverride": false,
+      "requestedDurationSeconds": 14.633333,
+      "outputDurationSeconds": 15,
+      "minSingleSegmentSeconds": 2,
+      "maxSingleSegmentSeconds": 15,
+      "followsSourceDuration": true,
+      "needsSegmentation": false,
+      "estimatedSegments": 1,
+      "reason": "输出时长跟随原视频时长，并按 wan2.7-i2v 支持的 2-15 秒整数约束取整。"
+    },
+    "inputs": {
+      "image": {
+        "assetId": "video-standard-a6af16c0",
+        "name": "standard-avatar-wikimedia.jpg",
+        "ossUrl": "oss://dashscope-instant/a4b12fdbcd899679777bf98cc6cf1187/2026-06-23/1d484273-adae-907c-864a-4864df8a5ab7/video-standard-a6af16c0.jpg",
+        "expiresAt": "2026-06-25T04:43:06.806Z"
+      },
+      "audio": {
+        "assetId": "voice-tts-8740283c",
+        "name": "qwen-tts-1782187616015.wav",
+        "ossUrl": "oss://dashscope-instant/a4b12fdbcd899679777bf98cc6cf1187/2026-06-23/de06a907-4b57-9d73-abff-cbe670adfbbf/voice-wan-73c07a82.wav",
+        "expiresAt": "2026-06-25T04:43:06.999Z",
+        "source": "generated-audio",
+        "preparedAssetId": "voice-wan-73c07a82",
+        "preparedName": "qwen-tts-1782187616015-wan-15s.wav",
+        "preparedDurationSeconds": 15,
+        "preparedFrom": "voice-tts-8740283c"
+      }
+    },
+    "note": "wan2.7-i2v 任务已提交；配置 WAN_S2V_POLL_TIMEOUT_MS 可在服务端等待结果，或用任务 ID 查询。"
+  }
+}

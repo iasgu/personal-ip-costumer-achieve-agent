@@ -1,0 +1,70 @@
+<view class="page">
+  <view class="eyebrow">PUBLISH</view>
+  <view class="title">抖音辅助发布</view>
+  <view class="subtitle">先检查草稿，再复制文案，最后由用户手动确认发布。</view>
+
+  <view class="mini-hero">
+    <view class="mini-hero-icon">↗</view>
+    <view>
+      <view class="mini-hero-title">发布助手</view>
+      <view class="mini-hero-desc">先检查，再保存，再发出。</view>
+    </view>
+  </view>
+
+  <view class="card" tt:if="{{!job}}">
+    <view class="card-title">还没有发布草稿</view>
+    <view class="card-desc">先在“生成”页提交头像、声音和抖音链接，生成后会出现在这里。</view>
+    <button class="primary-btn submit-btn" bindtap="goCreate">去生成</button>
+  </view>
+
+  <view class="card" tt:if="{{job}}">
+    <view class="field">
+      <text class="label">标题</text>
+      <input class="input" value="{{title}}" bindinput="onInput" data-key="title" />
+    </view>
+    <view class="field">
+      <text class="label">发布文案</text>
+      <textarea class="textarea" value="{{caption}}" bindinput="onInput" data-key="caption"></textarea>
+    </view>
+    <view class="field">
+      <text class="label">口播脚本</text>
+      <textarea class="textarea script-input" value="{{script}}" bindinput="onInput" data-key="script"></textarea>
+    </view>
+    <view class="field">
+      <text class="label">话题</text>
+      <input class="input" value="{{hashtagsText}}" bindinput="onInput" data-key="hashtagsText" placeholder="#个人IP #短视频运营" />
+    </view>
+
+    <view class="button-row">
+      <button class="secondary-btn" loading="{{checking}}" bindtap="checkDraft">发布检查</button>
+      <button class="secondary-btn" loading="{{saving}}" bindtap="saveDraft">保存草稿</button>
+    </view>
+    <view class="button-row">
+      <button class="plain-btn" bindtap="copyText">复制文案</button>
+      <button class="plain-btn" loading="{{downloading}}" bindtap="downloadVideo">准备视频</button>
+    </view>
+  </view>
+
+  <view class="card" tt:if="{{checks && checks.length}}">
+    <view class="card-title">检查结果</view>
+    <view class="check-item {{item.level}}" tt:for="{{checks}}" tt:key="message">
+      <text class="check-level">{{item.level}}</text>
+      <text>{{item.message}}</text>
+    </view>
+  </view>
+
+  <view class="card" tt:if="{{job}}">
+    <view class="card-title">发布到抖音</view>
+    <view class="card-desc" tt:if="{{localVideoPath}}">本地视频：{{localVideoPath}}</view>
+    <view class="card-desc danger" tt:if="{{!localVideoPath}}">请先准备视频，获得 ttfile 本地路径后再发布。</view>
+    <button
+      class="primary-btn submit-btn"
+      open-type="uploadDouyinVideo"
+      video-path="{{localVideoPath}}"
+      binduploadDouyinVideo="onUploadDouyinVideo"
+      bindtap="guardPublish"
+    >
+      用户确认发布
+    </button>
+  </view>
+</view>

@@ -1,0 +1,8 @@
+.env
+node_modules/
+*.log
+data/douyin-auth.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store

@@ -1,0 +1,34 @@
+﻿{
+    "ok":  true,
+    "taskId":  "6d358053-4532-44bf-b06c-bcb0572de788",
+    "status":  "SUCCEEDED",
+    "requestId":  "73360ed2-bd09-911d-aa87-06ea888d9f58",
+    "videoUrl":  "https://dashscope-a717.oss-accelerate.aliyuncs.com/1d/56/20260623/26ad5d64/38510465-metadata_user_9733bad16e7d4fbf.mp4?Expires=1782233698\u0026OSSAccessKeyId=LTAI5tJjG6wsHad1Sf7iezX4\u0026Signature=2FEgzrxr9bFCpMSb7l3j%2B4RhnHM%3D",
+    "url":  "https://dashscope-a717.oss-accelerate.aliyuncs.com/1d/56/20260623/26ad5d64/38510465-metadata_user_9733bad16e7d4fbf.mp4?Expires=1782233698\u0026OSSAccessKeyId=LTAI5tJjG6wsHad1Sf7iezX4\u0026Signature=2FEgzrxr9bFCpMSb7l3j%2B4RhnHM%3D",
+    "usage":  {
+                  "duration":  5,
+                  "input_video_duration":  0,
+                  "output_video_duration":  5,
+                  "video_count":  1,
+                  "SR":  720
+              },
+    "raw":  {
+                "request_id":  "73360ed2-bd09-911d-aa87-06ea888d9f58",
+                "output":  {
+                               "task_id":  "6d358053-4532-44bf-b06c-bcb0572de788",
+                               "task_status":  "SUCCEEDED",
+                               "submit_time":  "2026-06-23 00:54:19.730",
+                               "scheduled_time":  "2026-06-23 00:54:19.766",
+                               "end_time":  "2026-06-23 00:54:59.890",
+                               "orig_prompt":  "???AI??3?,????????????????",
+                               "video_url":  "https://dashscope-a717.oss-accelerate.aliyuncs.com/1d/56/20260623/26ad5d64/38510465-metadata_user_9733bad16e7d4fbf.mp4?Expires=1782233698\u0026OSSAccessKeyId=LTAI5tJjG6wsHad1Sf7iezX4\u0026Signature=2FEgzrxr9bFCpMSb7l3j%2B4RhnHM%3D"
+                           },
+                "usage":  {
+                              "duration":  5,
+                              "input_video_duration":  0,
+                              "output_video_duration":  5,
+                              "video_count":  1,
+                              "SR":  720
+                          }
+            }
+}

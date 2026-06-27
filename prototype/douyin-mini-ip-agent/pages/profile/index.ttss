@@ -1,0 +1,73 @@
+.submit-btn {
+  margin-top: 24rpx;
+}
+
+.mini-hero {
+  margin-top: 22rpx;
+  padding: 18rpx 20rpx;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  border: 1rpx solid #dce5f2;
+  background: #f8fbff;
+}
+
+.mini-hero-icon {
+  width: 52rpx;
+  height: 52rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4169e1;
+  background: #eef3fa;
+  font-size: 22rpx;
+  font-weight: 900;
+}
+
+.mini-hero-title {
+  color: #172033;
+  font-size: 28rpx;
+  font-weight: 900;
+}
+
+.mini-hero-desc {
+  margin-top: 4rpx;
+  color: #64748b;
+  font-size: 22rpx;
+}
+
+.auth-state {
+  margin-top: 18rpx;
+  padding: 18rpx;
+  border: 1rpx solid #dce5f2;
+  background: #f8fbff;
+  color: #42597d;
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+.auth-state.connected {
+  color: #1f7a4d;
+  background: #eefbf5;
+}
+
+.auth-state.mock,
+.auth-state.authing {
+  color: #9a6700;
+  background: #fff8e6;
+}
+
+.auth-state.error {
+  color: #b42318;
+  background: #fff1f0;
+}
+
+.switch-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.switch-row .label {
+  margin-bottom: 0;
+}

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>抖音感觉小测试</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section id="intro" class="screen active">
+        <p class="eyebrow">DOUYIN SENSE TEST</p>
+        <h1>帮我做个评论回复小测试</h1>
+        <p class="lead">不用专业，按你平时刷抖音、看评论的直觉说就行。重点是：哪些评论该回、怎么回像真人、怎么回不招人烦。</p>
+        <label class="field">
+          怎么称呼你
+          <input id="interviewee" value="舅妈" />
+        </label>
+        <button id="startBtn" class="primary">开始</button>
+      </section>
+
+      <section id="questionScreen" class="screen">
+        <div class="progress"><span id="progressBar"></span></div>
+        <p id="sectionLabel" class="eyebrow"></p>
+        <h2 id="questionTitle"></h2>
+        <div id="questionBody"></div>
+        <div class="nav">
+          <button id="prevBtn" class="ghost">上一步</button>
+          <button id="nextBtn" class="primary">下一步</button>
+        </div>
+      </section>
+
+      <section id="doneScreen" class="screen">
+        <p class="eyebrow">DONE</p>
+        <h2>已经保存了</h2>
+        <p class="lead">谢谢，你的判断会被整理成评论回复规则，后面给 AI 回评论和筛线索用。</p>
+        <pre id="insightBox"></pre>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>

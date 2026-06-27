@@ -1,0 +1,33 @@
+﻿{
+    "ok":  true,
+    "provider":  "wan2.7-i2v",
+    "model":  "wan2.7-i2v-2026-04-25",
+    "status":  "SUCCEEDED",
+    "taskId":  "5312018a-bd2f-4a88-99fb-92d4182b937a",
+    "requestId":  "5fc380e1-716a-90a0-95fa-dbbd76135e58",
+    "url":  "https://dashscope-a717.oss-accelerate.aliyuncs.com/1d/69/20260623/26ad5d64/74131939-metadata_user_9e908a6583fac321.mp4?Expires=1782271795\u0026OSSAccessKeyId=LTAI5tJjG6wsHad1Sf7iezX4\u0026Signature=yLZuNeGellj3Dfc5UNazzATTaFc%3D",
+    "videoUrl":  "https://dashscope-a717.oss-accelerate.aliyuncs.com/1d/69/20260623/26ad5d64/74131939-metadata_user_9e908a6583fac321.mp4?Expires=1782271795\u0026OSSAccessKeyId=LTAI5tJjG6wsHad1Sf7iezX4\u0026Signature=yLZuNeGellj3Dfc5UNazzATTaFc%3D",
+    "usage":  {
+                  "duration":  5,
+                  "input_video_duration":  0,
+                  "output_video_duration":  5,
+                  "video_count":  1,
+                  "SR":  720
+              },
+    "inputs":  {
+                   "image":  {
+                                 "assetId":  "video-standard-a6af16c0",
+                                 "name":  "standard-avatar-wikimedia.jpg",
+                                 "ossUrl":  "oss://dashscope-instant/a4b12fdbcd899679777bf98cc6cf1187/2026-06-23/8802ce36-fadc-9322-8365-270c3425d6ab/video-standard-a6af16c0.jpg",
+                                 "expiresAt":  "2026-06-25T03:28:52.287Z"
+                             },
+                   "audio":  {
+                                 "assetId":  "voice-tts-38e79c27",
+                                 "name":  "qwen-tts-1782185300146.wav",
+                                 "ossUrl":  "oss://dashscope-instant/a4b12fdbcd899679777bf98cc6cf1187/2026-06-23/aa78eaea-1613-9909-afa8-d57bafdad7d2/voice-tts-38e79c27.wav",
+                                 "expiresAt":  "2026-06-25T03:28:52.361Z",
+                                 "source":  "generated-audio"
+                             }
+               },
+    "note":  "wan2.7-i2v 已返回真实视频 URL，请在 24 小时内下载保存。"
+}

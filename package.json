@@ -1,0 +1,15 @@
+{
+  "name": "ningjingzhiyuan-ip-agent-root",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Root deployment wrapper for the Douyin IP agent backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

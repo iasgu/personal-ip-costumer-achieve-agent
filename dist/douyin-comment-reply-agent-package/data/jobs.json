@@ -1,0 +1,61 @@
+[
+  {
+    "jobId": "job_mqunxn78_98ab90",
+    "status": "draft_ready",
+    "douyinUrl": "https://www.douyin.com/video/7627997605162684134",
+    "persona": "test",
+    "offer": "test",
+    "title": "给一个爆款链接，改成你的个人IP口播",
+    "script": "同样一条爆款链接，普通人最缺的不是剪辑，是把它改成自己的表达\n如果你是test，不要直接照搬原视频。先拆它的钩子、情绪和转化点，再换成你自己的案例和口语。\n我们现在做的流程，就是给一个抖音链接，自动拆结构、改写口播、生成发布草稿，再把评论区的高价值问题挑出来。\n重点不是炫技，而是让你每天稳定产出、稳定测试，先跑通一条，再考虑批量放大。",
+    "caption": "给一个爆款链接，先拆钩子再改成自己的表达。test",
+    "hashtags": [
+      "个人IP",
+      "短视频运营",
+      "AI获客"
+    ],
+    "videoUrl": "https://example.com/generated-personal-ip-demo.mp4",
+    "coverUrl": "https://example.com/generated-personal-ip-cover.jpg",
+    "analysis": {
+      "sourceUrl": "https://www.douyin.com/video/7627997605162684134",
+      "persona": "test",
+      "offer": "test",
+      "sourceSummary": "未提供源视频文字信息，当前按链接与账号定位生成发布草稿。",
+      "principles": [
+        "先承接源视频情绪和钩子，再改成账号自己的表达",
+        "不承诺确定收益，不强行留联系方式",
+        "评论区先轻互动，再用人工确认筛选高价值线索"
+      ],
+      "strategy": {
+        "persona": "偏个人IP口语，先像真人再像工具",
+        "replyStyle": "短句、接话、克制，不硬广，不承诺结果",
+        "publishStyle": "先拆爆款钩子，再换成自己的案例和转化点",
+        "humanApproval": true,
+        "source": "fused-strategy:2026-06-25T02:06:21.244Z",
+        "hints": [
+          "优先回复有明确需求、想试、问案例、问账号诊断、问联系方式的评论",
+          "表达要像真人生活经验，不要一上来像广告",
+          "问联系、问案例、愿意留链接/账号的评论，是高价值线索",
+          "质疑类评论先承认担心合理，再给测试方式，不要对怼",
+          "攻击性评论不建议认真争辩，可忽略、隐藏或只做低情绪回应",
+          "回复要像真人说话，短句、口语、别像客服模板",
+          "评论区避免直接发联系方式，可用“主页/私信/先留链接我看下”这类更安全表达"
+        ]
+      }
+    },
+    "checks": [
+      {
+        "level": "pass",
+        "message": "发布草稿基础检查通过"
+      }
+    ],
+    "generation": {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "fallback": false,
+      "fallbackReason": ""
+    },
+    "assets": {},
+    "createdAt": "2026-06-26T08:22:17.013Z",
+    "updatedAt": "2026-06-26T08:22:17.016Z"
+  }
+]

@@ -1,0 +1,39 @@
+[
+  {
+    "commentId": "comment_001",
+    "publishId": "pub_demo",
+    "userName": "想做个人IP的小马",
+    "text": "这个工具怎么收费，适合刚起号的人用吗？",
+    "createdAt": "2026-06-24T09:10:00+08:00",
+    "likeCount": 18,
+    "replyStatus": "pending"
+  },
+  {
+    "commentId": "comment_002",
+    "publishId": "pub_demo",
+    "userName": "本地生活老周",
+    "text": "能不能直接用我自己的声音和头像？",
+    "createdAt": "2026-06-24T09:22:00+08:00",
+    "likeCount": 9,
+    "replyStatus": "pending"
+  },
+  {
+    "commentId": "comment_003",
+    "publishId": "pub_demo",
+    "userName": "阿宁",
+    "text": "效果看着还行，但是会不会很像AI？",
+    "createdAt": "2026-06-24T09:41:00+08:00",
+    "likeCount": 6,
+    "replyStatus": "pending"
+  },
+  {
+    "commentId": "comment_004",
+    "publishId": "pub_demo",
+    "userName": "运营小白",
+    "text": "不会写文案能用吗？",
+    "createdAt": "2026-06-24T10:03:00+08:00",
+    "likeCount": 12,
+    "replyStatus": "pending"
+  }
+]
+

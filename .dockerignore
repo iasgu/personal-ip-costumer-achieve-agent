@@ -1,0 +1,9 @@
+.git
+.gitignore
+dist
+node_modules
+**/node_modules
+**/.env
+**/*.log
+**/data/douyin-auth.json
+prototype/douyin-comment-reply-agent/data/douyin-auth.json

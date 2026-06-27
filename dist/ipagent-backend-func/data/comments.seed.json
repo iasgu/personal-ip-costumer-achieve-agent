@@ -1,0 +1,112 @@
+[
+  {
+    "commentId": "comment_001",
+    "itemId": "item_demo",
+    "userName": "想做个人IP的小马",
+    "userId": "user_001",
+    "content": "这个工具怎么收费，适合刚起号的人用吗？",
+    "createTime": 1782301800,
+    "diggCount": 18,
+    "replyCommentTotal": 0,
+    "replyStatus": "pending"
+  },
+  {
+    "commentId": "comment_002",
+    "itemId": "item_demo",
+    "userName": "本地生活老周",
+    "userId": "user_002",
+    "content": "能不能直接用我自己的声音和头像？",
+    "createTime": 1782302400,
+    "diggCount": 9,
+    "replyCommentTotal": 0,
+    "replyStatus": "pending"
+  },
+  {
+    "commentId": "comment_003",
+    "itemId": "item_demo",
+    "userName": "阿宁",
+    "userId": "user_003",
+    "content": "效果看着还行，但是会不会很像AI？",
+    "createTime": 1782303000,
+    "diggCount": 6,
+    "replyCommentTotal": 0,
+    "replyStatus": "pending"
+  },
+  {
+    "commentId": "comment_004",
+    "itemId": "item_demo",
+    "userName": "运营小白",
+    "userId": "user_004",
+    "content": "不会写文案能用吗？",
+    "createTime": 1782303600,
+    "diggCount": 12,
+    "replyCommentTotal": 0,
+    "replyStatus": "pending"
+  },
+  {
+    "commentId": "comment_005",
+    "itemId": "item_demo",
+    "userName": "餐饮店阿姨",
+    "userId": "user_005",
+    "content": "我是开小面馆的，这个适合餐饮店老板吗？",
+    "createTime": 1782304200,
+    "diggCount": 21,
+    "replyCommentTotal": 0,
+    "replyStatus": "pending"
+  },
+  {
+    "commentId": "comment_006",
+    "itemId": "item_demo",
+    "userName": "想起号的老王",
+    "userId": "user_006",
+    "content": "能不能帮我看看我的账号？我发了半个月没流量。",
+    "createTime": 1782304800,
+    "diggCount": 33,
+    "replyCommentTotal": 0,
+    "replyStatus": "pending"
+  },
+  {
+    "commentId": "comment_007",
+    "itemId": "item_demo",
+    "userName": "合作聊聊",
+    "userId": "user_007",
+    "content": "我们公司有几十个本地生活账号，可以合作吗？",
+    "createTime": 1782305400,
+    "diggCount": 15,
+    "replyCommentTotal": 0,
+    "replyStatus": "pending"
+  },
+  {
+    "commentId": "comment_008",
+    "itemId": "item_demo",
+    "userName": "质疑哥",
+    "userId": "user_008",
+    "content": "你这个一看就是割韭菜，别吹了。",
+    "createTime": 1782306000,
+    "diggCount": 4,
+    "replyCommentTotal": 2,
+    "replyStatus": "pending"
+  },
+  {
+    "commentId": "comment_009",
+    "itemId": "item_demo",
+    "userName": "急着变现",
+    "userId": "user_009",
+    "content": "能保证一个月涨粉一万吗？",
+    "createTime": 1782306600,
+    "diggCount": 7,
+    "replyCommentTotal": 0,
+    "replyStatus": "pending"
+  },
+  {
+    "commentId": "comment_010",
+    "itemId": "item_demo",
+    "userName": "想看案例",
+    "userId": "user_010",
+    "content": "有没有真实案例？想先看看效果。",
+    "createTime": 1782307200,
+    "diggCount": 26,
+    "replyCommentTotal": 0,
+    "replyStatus": "pending"
+  }
+]

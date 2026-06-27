@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "taskId": "d78e29aa-7e55-4acb-91ea-3a334b9e36ff",
+  "status": "SUCCEEDED",
+  "requestId": "467b9325-e7df-943d-bc7f-dfcfc4e531a8",
+  "videoUrl": "https://dashscope-a717.oss-accelerate.aliyuncs.com/1d/fc/20260623/26ad5d64/44739301-metadata_user_c2fa24bc0d5973c2.mp4?Expires=1782276299&OSSAccessKeyId=LTAI5tJjG6wsHad1Sf7iezX4&Signature=eSpbP9dZToQPDhs8TbTb8%2FeOasE%3D",
+  "url": "https://dashscope-a717.oss-accelerate.aliyuncs.com/1d/fc/20260623/26ad5d64/44739301-metadata_user_c2fa24bc0d5973c2.mp4?Expires=1782276299&OSSAccessKeyId=LTAI5tJjG6wsHad1Sf7iezX4&Signature=eSpbP9dZToQPDhs8TbTb8%2FeOasE%3D",
+  "localVideoUrl": "/assets/outputs/d78e29aa-7e55-4acb-91ea-3a334b9e36ff.mp4",
+  "localVideoPath": "C:\\Users\\majia\\Documents\\ningjingzhiyuan-2C Agent\\prototype\\ip-agent\\assets\\outputs\\d78e29aa-7e55-4acb-91ea-3a334b9e36ff.mp4",
+  "localVideoError": "",
+  "usage": {
+    "duration": 15,
+    "input_video_duration": 0,
+    "output_video_duration": 15,
+    "video_count": 1,
+    "SR": 720
+  },
+  "raw": {
+    "request_id": "467b9325-e7df-943d-bc7f-dfcfc4e531a8",
+    "output": {
+      "task_id": "d78e29aa-7e55-4acb-91ea-3a334b9e36ff",
+      "task_status": "SUCCEEDED",
+      "submit_time": "2026-06-23 12:43:07.808",
+      "scheduled_time": "2026-06-23 12:43:07.841",
+      "end_time": "2026-06-23 12:45:01.755",
+      "orig_prompt": "餐饮门店没客流？看似无解的难题，其实两步就能破局！",
+      "video_url": "https://dashscope-a717.oss-accelerate.aliyuncs.com/1d/fc/20260623/26ad5d64/44739301-metadata_user_c2fa24bc0d5973c2.mp4?Expires=1782276299&OSSAccessKeyId=LTAI5tJjG6wsHad1Sf7iezX4&Signature=eSpbP9dZToQPDhs8TbTb8%2FeOasE%3D"
+    },
+    "usage": {
+      "duration": 15,
+      "input_video_duration": 0,
+      "output_video_duration": 15,
+      "video_count": 1,
+      "SR": 720
+    }
+  }
+}

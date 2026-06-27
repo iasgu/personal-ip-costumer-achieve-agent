@@ -1,0 +1,110 @@
+<view class="page">
+  <view class="eyebrow">COMMENTS</view>
+  <view class="title">评论互动运营</view>
+  <view class="subtitle">拉取评论、识别意图、生成口语化回复，并按选择的模式处理评论。</view>
+
+  <view class="mini-hero">
+    <view class="mini-hero-icon">AI</view>
+    <view>
+      <view class="mini-hero-title">互动工作台</view>
+      <view class="mini-hero-desc">先分类，再生成，再回复。</view>
+    </view>
+  </view>
+
+  <view class="card mode-card">
+    <view class="card-title">运营模式</view>
+    <view class="mode-switch">
+      <view class="mode-tab {{mode === 'assist' ? 'active' : ''}}" bindtap="setMode" data-mode="assist">智能辅助</view>
+      <view class="mode-tab {{mode === 'auto' ? 'active' : ''}}" bindtap="setMode" data-mode="auto">全自动</view>
+    </view>
+    <view class="mode-note" tt:if="{{mode === 'assist'}}">生成建议后人工修改确认，适合接真实账号初期使用。</view>
+    <view class="mode-note" tt:if="{{mode === 'auto'}}">系统逐条生成并提交回复，处理过程会实时记录在下方。</view>
+  </view>
+
+  <view class="card strategy-card" tt:if="{{strategy}}">
+    <view class="card-title">当前策略</view>
+    <view class="strategy-line">人设：{{strategy.persona}}</view>
+    <view class="strategy-line">回复：{{strategy.replyStyle}}</view>
+    <view class="strategy-line">发布：{{strategy.publishStyle}}</view>
+  </view>
+
+  <view class="card">
+    <view class="field">
+      <text class="label">视频 itemId</text>
+      <input class="input" value="{{itemId}}" bindinput="onInput" data-key="itemId" />
+    </view>
+    <view class="button-row">
+      <button class="secondary-btn" loading="{{loading}}" bindtap="loadComments">刷新评论</button>
+      <button class="plain-btn" bindtap="bootstrap">同步策略</button>
+    </view>
+    <view class="filter-row">
+      <view class="filter-chip {{filter === 'all' ? 'active' : ''}}" bindtap="setFilter" data-filter="all">全部</view>
+      <view class="filter-chip {{filter === 'high' ? 'active' : ''}}" bindtap="setFilter" data-filter="high">高优先</view>
+      <view class="filter-chip {{filter === 'medium' ? 'active' : ''}}" bindtap="setFilter" data-filter="medium">中优先</view>
+      <view class="filter-chip {{filter === 'pending' ? 'active' : ''}}" bindtap="setFilter" data-filter="pending">待回复</view>
+      <view class="filter-chip {{filter === 'replied' ? 'active' : ''}}" bindtap="setFilter" data-filter="replied">已回复</view>
+    </view>
+  </view>
+
+  <view class="card auto-panel" tt:if="{{mode === 'auto'}}">
+    <view class="auto-head">
+      <view>
+        <view class="card-title">全自动托管</view>
+        <view class="auto-subtitle">{{autoProgress.done}} 已完成 / {{autoProgress.failed}} 失败 / {{autoProgress.total}} 总数</view>
+      </view>
+      <button class="primary-btn auto-action" tt:if="{{!autoRunning}}" bindtap="startAutoReply">开始</button>
+      <button class="plain-btn auto-action" tt:if="{{autoRunning}}" bindtap="stopAutoReply">停止</button>
+    </view>
+    <view class="auto-logs" tt:if="{{autoLogs.length}}">
+      <view class="auto-log {{item.level}}" tt:for="{{autoLogs}}" tt:key="id">
+        <text class="auto-log-time">{{item.time}}</text>
+        <text class="auto-log-text">{{item.text}}</text>
+      </view>
+    </view>
+    <view class="empty-log" tt:else>点击开始后，这里会显示每条评论的生成、提交和失败原因。</view>
+  </view>
+
+  <view class="card summary-card" tt:if="{{summary}}">
+    <view class="summary-grid">
+      <view class="summary-box">
+        <text class="summary-value">{{summary.total}}</text>
+        <text class="summary-label">总评论</text>
+      </view>
+      <view class="summary-box">
+        <text class="summary-value">{{summary.highPriority}}</text>
+        <text class="summary-label">高优先</text>
+      </view>
+      <view class="summary-box">
+        <text class="summary-value">{{summary.mediumPriority}}</text>
+        <text class="summary-label">中优先</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="comment-card" tt:for="{{visibleComments}}" tt:key="commentId">
+    <view class="comment-head">
+      <view>
+        <view class="comment-user">{{item.userName}}</view>
+        <view class="comment-meta">{{item.likeCount}} 赞 · {{item.replyStatusLabel}}</view>
+      </view>
+      <view class="status-stack">
+        <view class="status-pill">{{item.priorityLabel}}</view>
+        <view class="auto-state {{item.autoState}}" tt:if="{{item.autoStateLabel}}">{{item.autoStateLabel}}</view>
+      </view>
+    </view>
+    <view class="comment-text">{{item.text}}</view>
+    <view class="meta-line" tt:if="{{item.categoryLabel}}">{{item.categoryLabel}} · {{item.recommendedAction}}</view>
+    <view class="auto-error" tt:if="{{item.autoError}}">{{item.autoError}}</view>
+    <view class="suggestion-list" tt:if="{{item.suggestions && item.suggestions.length}}">
+      <view class="suggestion" tt:for="{{item.suggestions}}" tt:for-item="suggestion" tt:key="*this" bindtap="useSuggestion" data-comment-id="{{item.commentId}}" data-text="{{suggestion}}">
+        {{suggestion}}
+      </view>
+    </view>
+    <textarea class="textarea reply-input" value="{{item.replyText}}" bindinput="onReplyInput" data-comment-id="{{item.commentId}}" placeholder="先生成建议，再人工编辑确认"></textarea>
+    <view class="button-row" tt:if="{{mode === 'assist'}}">
+      <button class="secondary-btn" loading="{{item.generating}}" bindtap="suggestReply" data-comment-id="{{item.commentId}}">生成建议</button>
+      <button class="primary-btn" bindtap="sendReply" data-comment-id="{{item.commentId}}">人工确认回复</button>
+    </view>
+    <view class="auto-card-note" tt:if="{{mode === 'auto' && item.replyStatus !== 'replied'}}">自动模式会按优先级处理这条评论。</view>
+  </view>
+</view>

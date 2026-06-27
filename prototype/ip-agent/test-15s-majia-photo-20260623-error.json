@@ -1,0 +1,7 @@
+{
+  "message": "Qwen-TTS 合成失败 400: {\"code\":\"Arrearage\",\"message\":\"Access denied, please make sure your account is in good standing. For details, see: https://help.aliyun.com/zh/model-studio/error-code#overdue-payment\",\"request_id\":\"a44a7c90-63be-9e54-b73f-7809cfc0d8a2\"}",
+  "payload": {
+    "error": "Qwen-TTS 合成失败 400: {\"code\":\"Arrearage\",\"message\":\"Access denied, please make sure your account is in good standing. For details, see: https://help.aliyun.com/zh/model-studio/error-code#overdue-payment\",\"request_id\":\"a44a7c90-63be-9e54-b73f-7809cfc0d8a2\"}"
+  },
+  "stack": "Error: Qwen-TTS 合成失败 400: {\"code\":\"Arrearage\",\"message\":\"Access denied, please make sure your account is in good standing. For details, see: https://help.aliyun.com/zh/model-studio/error-code#overdue-payment\",\"request_id\":\"a44a7c90-63be-9e54-b73f-7809cfc0d8a2\"}\n    at postJson (file:///C:/Users/majia/Documents/ningjingzhiyuan-2C%20Agent/prototype/ip-agent/tools/run-full-flow.mjs:194:21)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async main (file:///C:/Users/majia/Documents/ningjingzhiyuan-2C%20Agent/prototype/ip-agent/tools/run-full-flow.mjs:64:17)"
+}

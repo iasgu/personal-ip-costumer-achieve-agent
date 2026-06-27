@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>抖音评论回复模块</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">DOUYIN COMMENT REPLY</p>
+          <h1>抖音视频评论回复</h1>
+          <p class="subhead">独立模块：拉评论、生成回复建议、风险检查、人工确认回复。</p>
+        </div>
+        <div class="health">
+          <span id="adapterBadge" class="badge">mock</span>
+          <strong id="healthTitle">检查中</strong>
+          <small id="healthText">正在读取服务状态</small>
+          <small id="rulesText">规则加载中</small>
+        </div>
+      </header>
+
+      <section class="toolbar">
+        <label>
+          视频 item_id / aweme_id
+          <input id="itemIdInput" value="item_demo" />
+        </label>
+        <label>
+          筛选
+          <select id="filterSelect">
+            <option value="all">全部</option>
+            <option value="high">高优先级</option>
+            <option value="medium">中优先级</option>
+            <option value="low">低优先级</option>
+            <option value="pending">待处理</option>
+            <option value="replied">已回复</option>
+            <option value="ignored">已忽略</option>
+            <option value="business_cooperation">合作线索</option>
+            <option value="account_diagnosis">账号诊断</option>
+            <option value="negative_attack">负面质疑</option>
+          </select>
+        </label>
+        <label>
+          搜索
+          <input id="searchInput" placeholder="用户/评论/分类" />
+        </label>
+        <button id="loadBtn" class="primary-btn" type="button">拉取评论</button>
+        <button id="batchBtn" class="ghost-btn" type="button">批量建议</button>
+        <button id="reportBtn" class="ghost-btn" type="button">生成报告</button>
+        <button id="resetBtn" class="ghost-btn" type="button">重置 mock</button>
+      </section>
+
+      <section class="layout">
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-no">01</p>
+              <h2>评论列表</h2>
+            </div>
+            <span id="commentCount" class="muted">0 条</span>
+          </div>
+          <div id="summaryBar" class="summary-bar"></div>
+          <div id="commentList" class="comment-list"></div>
+        </article>
+
+        <aside class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="section-no">02</p>
+              <h2>接入要求</h2>
+            </div>
+          </div>
+          <div class="info-list">
+            <p><strong>权限</strong>：小程序申请视频评论数据；移动/网站应用申请 item.comment。</p>
+            <p><strong>授权</strong>：只能操作授权用户自己发布的视频评论。</p>
+            <p><strong>审核</strong>：回复内容需平台审核，审核通过后才展示。</p>
+            <p><strong>安全</strong>：access_token 只放服务器，不进前端。</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="panel report-panel">
+        <div class="panel-head">
+          <div>
+            <p class="section-no">03</p>
+            <h2>运营报告</h2>
+          </div>
+          <button id="copyReportBtn" class="ghost-btn" type="button">复制报告</button>
+        </div>
+        <pre id="reportBox" class="report-box">点击“生成报告”，汇总当前评论队列。</pre>
+      </section>
+    </main>
+    <div id="toast" class="toast" hidden></div>
+    <script src="./app.js"></script>
+  </body>
+</html>

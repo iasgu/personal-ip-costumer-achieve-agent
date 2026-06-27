@@ -1,0 +1,34 @@
+﻿{
+    "ok":  true,
+    "taskId":  "96ba3196-a21b-44b0-a731-0f198d96da6f",
+    "status":  "SUCCEEDED",
+    "requestId":  "05f808a9-c9b4-94e3-ae47-c075340c1d74",
+    "videoUrl":  "https://dashscope-a717.oss-accelerate.aliyuncs.com/1d/f8/20260623/61bb005a/87232577-metadata_user_bdd7b760c9cc8b45.mp4?Expires=1782235956\u0026OSSAccessKeyId=LTAI5tJjG6wsHad1Sf7iezX4\u0026Signature=GVZiX8sbOMxwjJwS2fwjqcMsR8g%3D",
+    "url":  "https://dashscope-a717.oss-accelerate.aliyuncs.com/1d/f8/20260623/61bb005a/87232577-metadata_user_bdd7b760c9cc8b45.mp4?Expires=1782235956\u0026OSSAccessKeyId=LTAI5tJjG6wsHad1Sf7iezX4\u0026Signature=GVZiX8sbOMxwjJwS2fwjqcMsR8g%3D",
+    "usage":  {
+                  "duration":  5,
+                  "input_video_duration":  0,
+                  "output_video_duration":  5,
+                  "video_count":  1,
+                  "SR":  720
+              },
+    "raw":  {
+                "request_id":  "05f808a9-c9b4-94e3-ae47-c075340c1d74",
+                "output":  {
+                               "task_id":  "96ba3196-a21b-44b0-a731-0f198d96da6f",
+                               "task_status":  "SUCCEEDED",
+                               "submit_time":  "2026-06-23 01:32:06.639",
+                               "scheduled_time":  "2026-06-23 01:32:06.697",
+                               "end_time":  "2026-06-23 01:32:38.126",
+                               "orig_prompt":  "餐饮老板必看！用AI诊断一下，你的餐厅为什么没客？",
+                               "video_url":  "https://dashscope-a717.oss-accelerate.aliyuncs.com/1d/f8/20260623/61bb005a/87232577-metadata_user_bdd7b760c9cc8b45.mp4?Expires=1782235956\u0026OSSAccessKeyId=LTAI5tJjG6wsHad1Sf7iezX4\u0026Signature=GVZiX8sbOMxwjJwS2fwjqcMsR8g%3D"
+                           },
+                "usage":  {
+                              "duration":  5,
+                              "input_video_duration":  0,
+                              "output_video_duration":  5,
+                              "video_count":  1,
+                              "SR":  720
+                          }
+            }
+}

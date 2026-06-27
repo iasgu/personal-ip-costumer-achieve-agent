@@ -1,0 +1,22 @@
+.DS_Store
+Thumbs.db
+
+# Local secrets and env files
+.env
+.env.*
+!.env.example
+
+# Logs and runtime output
+*.log
+*.out.log
+*.err.log
+
+# Dependencies and editor caches
+node_modules/
+.idea/
+.vscode/
+
+# Browser/runtime profiles and temp work files
+**/.browser-profile/
+**/.tmp/
+**/tmp/
