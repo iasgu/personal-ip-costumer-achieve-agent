@@ -43,7 +43,7 @@ Page({
 
   async loadStrategy() {
     try {
-      const data = await api.request("/api/strategy/current");
+      const data = await api.request("/api/customer-service/strategy/current");
       this.setData({ strategy: data.strategy || null });
     } catch {
       this.setData({ strategy: null });

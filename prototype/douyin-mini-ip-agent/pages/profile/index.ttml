@@ -12,6 +12,14 @@
   </view>
 
   <view class="card">
+    <view class="card-title">后端状态</view>
+    <view class="auth-state {{backendStatus.status}}">{{backendStatus.message}}</view>
+    <view class="button-row">
+      <button class="secondary-btn" bindtap="loadBackendStatus">刷新后端</button>
+    </view>
+  </view>
+
+  <view class="card">
     <view class="card-title">后端连接</view>
     <view class="field">
       <text class="label">后端 API 地址</text>

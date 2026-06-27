@@ -7,6 +7,7 @@ Page({
     replyStyle: config.DEFAULT_REPLY_STYLE,
     offer: config.DEFAULT_OFFER,
     apiBaseUrl: config.API_BASE_URL,
+    backendStatus: { status: "unknown", message: "未检查后端" },
     customerServiceScene: config.DEFAULT_CUSTOMER_SERVICE_STRATEGY.sceneName,
     customerServiceSummary: config.DEFAULT_CUSTOMER_SERVICE_STRATEGY.businessSummary,
     customerServiceItemsText: config.DEFAULT_CUSTOMER_SERVICE_STRATEGY.businessItems.join("\n"),
@@ -18,18 +19,12 @@ Page({
     customerServiceHumanApproval: config.DEFAULT_CUSTOMER_SERVICE_STRATEGY.humanApproval,
     customerServiceWorkStart: config.DEFAULT_CUSTOMER_SERVICE_STRATEGY.workingHours.start,
     customerServiceWorkEnd: config.DEFAULT_CUSTOMER_SERVICE_STRATEGY.workingHours.end,
-    customerServiceStatus: {
-      status: "unknown",
-      message: "未加载客服策略"
-    },
+    customerServiceStatus: { status: "unknown", message: "未加载客服策略" },
     customerServiceSaving: false,
-    authState: {
-      status: "unknown",
-      message: "未检测"
-    },
+    authState: { status: "unknown", message: "未检查授权" },
     testVideoId: "",
     testItemId: "",
-    testing: false
+    testing: false,
   },
 
   onLoad() {
@@ -39,8 +34,9 @@ Page({
       persona: profile.persona || config.DEFAULT_PERSONA,
       replyStyle: profile.replyStyle || config.DEFAULT_REPLY_STYLE,
       offer: profile.offer || config.DEFAULT_OFFER,
-      apiBaseUrl: savedApiBaseUrl
+      apiBaseUrl: savedApiBaseUrl,
     });
+    this.loadBackendStatus();
     this.loadAuthState();
     this.loadCustomerServiceStrategy();
   },
@@ -58,7 +54,35 @@ Page({
     }
     tt.setStorageSync("API_BASE_URL", value);
     this.toast("已保存 API 地址");
+    this.loadBackendStatus();
     this.loadAuthState();
+  },
+
+  async loadBackendStatus() {
+    try {
+      const data = await api.request("/api/health");
+      const env = data.env || {};
+      const douyin = env.douyin || {};
+      const llm = env.llm || {};
+      this.setData({
+        backendStatus: {
+          status: data.ok ? "connected" : "error",
+          message: [
+            `后端${data.ok ? "正常" : "异常"}`,
+            `抖音密钥${douyin.appIdSet && douyin.appSecretSet ? "已配" : "缺失"}`,
+            `授权${douyin.accessTokenSet ? "已登录" : "未登录"}`,
+            `模型${llm.configured ? `${llm.provider}/${llm.model}` : "未配置"}`,
+          ].join(" / "),
+        },
+      });
+    } catch (error) {
+      this.setData({
+        backendStatus: {
+          status: "error",
+          message: error.message || "后端健康检查失败",
+        },
+      });
+    }
   },
 
   async loadAuthState() {
@@ -69,16 +93,16 @@ Page({
         authState: {
           status: auth.configured ? "connected" : "mock",
           message: auth.configured
-            ? `已授权：${auth.openId || "已保存 token"}`
-            : "未授权，当前只能使用 mock 数据"
-        }
+            ? `已授权：${auth.openId || "token 已保存"}`
+            : "未授权，当前仅能使用 mock 或只读状态",
+        },
       });
     } catch (error) {
       this.setData({
         authState: {
           status: "error",
-          message: error.message || "授权状态获取失败"
-        }
+          message: error.message || "授权状态获取失败",
+        },
       });
     }
   },
@@ -91,7 +115,7 @@ Page({
     } catch (error) {
       const localStrategy = tt.getStorageSync("customerServiceStrategy");
       if (localStrategy) {
-        this.applyCustomerServiceStrategy(localStrategy, "cached", "已使用本地缓存的客服策略");
+        this.applyCustomerServiceStrategy(localStrategy, "cached", "使用本地缓存客服策略");
         return;
       }
       this.applyCustomerServiceStrategy(config.DEFAULT_CUSTOMER_SERVICE_STRATEGY, "default", error.message || "使用默认客服策略");
@@ -102,8 +126,8 @@ Page({
     if (!tt.showDouyinOpenAuth) {
       tt.showModal({
         title: "当前环境不支持",
-        content: "当前开发工具或基础库没有 showDouyinOpenAuth。请用真机预览或升级开发者工具后再试。",
-        showCancel: false
+        content: "当前开发工具或基础库没有 showDouyinOpenAuth。请在真机预览或升级开发者工具后再试。",
+        showCancel: false,
       });
       return;
     }
@@ -116,8 +140,8 @@ Page({
           this.setData({
             authState: {
               status: "error",
-              message: "授权成功但没有拿到 ticket/code，请查看控制台返回值"
-            }
+              message: "授权成功但没有拿到 ticket/code，请查看返回值",
+            },
           });
           return;
         }
@@ -127,42 +151,39 @@ Page({
         this.setData({
           authState: {
             status: "error",
-            message: error.errMsg || "授权失败"
-          }
+            message: error.errMsg || "授权失败",
+          },
         });
         this.toast(error.errMsg || "授权失败");
-      }
+      },
     });
   },
 
   async exchangeAuthTicket(ticket) {
     this.setData({
-      authState: {
-        status: "authing",
-        message: "正在换取 access_token"
-      }
+      authState: { status: "authing", message: "正在兑换 access_token" },
     });
     try {
       const data = await api.request("/api/douyin/auth/exchange", {
         method: "POST",
-        data: { ticket }
+        data: { ticket },
       });
       const auth = data.auth || {};
       this.setData({
         authState: {
           status: auth.configured ? "connected" : "error",
-          message: auth.configured ? `授权成功：${auth.openId || "已保存 token"}` : "授权返回异常"
-        }
+          message: auth.configured ? `授权成功：${auth.openId || "token 已保存"}` : "授权返回异常",
+        },
       });
       this.toast("授权成功");
     } catch (error) {
       this.setData({
         authState: {
           status: "error",
-          message: error.message || "换取 token 失败"
-        }
+          message: error.message || "兑换 token 失败",
+        },
       });
-      this.toast(error.message || "换取 token 失败");
+      this.toast(error.message || "兑换 token 失败");
     }
   },
 
@@ -176,12 +197,12 @@ Page({
     try {
       const data = await api.request("/api/douyin/video/convert", {
         method: "POST",
-        data: { videoId }
+        data: { videoId },
       });
       tt.showModal({
         title: "转换结果",
         content: JSON.stringify(data.result || data).slice(0, 800),
-        showCancel: false
+        showCancel: false,
       });
     } catch (error) {
       this.toast(error.message || "转换失败");
@@ -200,12 +221,12 @@ Page({
     try {
       const data = await api.request("/api/douyin/video/query", {
         method: "POST",
-        data: { itemId }
+        data: { itemId },
       });
       tt.showModal({
         title: "视频数据",
         content: JSON.stringify(data.result || data).slice(0, 800),
-        showCancel: false
+        showCancel: false,
       });
     } catch (error) {
       this.toast(error.message || "查询失败");
@@ -225,8 +246,8 @@ Page({
       ...strategy,
       workingHours: {
         ...config.DEFAULT_CUSTOMER_SERVICE_STRATEGY.workingHours,
-        ...(strategy.workingHours || {})
-      }
+        ...(strategy.workingHours || {}),
+      },
     };
     this.setData({
       customerServiceScene: safeStrategy.sceneName || "",
@@ -240,10 +261,7 @@ Page({
       customerServiceHumanApproval: safeStrategy.humanApproval !== false,
       customerServiceWorkStart: safeStrategy.workingHours?.start || "09:00",
       customerServiceWorkEnd: safeStrategy.workingHours?.end || "21:00",
-      customerServiceStatus: {
-        status,
-        message
-      }
+      customerServiceStatus: { status, message },
     });
     getApp().globalData.customerServiceStrategy = safeStrategy;
     tt.setStorageSync("customerServiceStrategy", safeStrategy);
@@ -263,8 +281,8 @@ Page({
       workingHours: {
         timezone: "Asia/Shanghai",
         start: String(this.data.customerServiceWorkStart || "09:00").trim(),
-        end: String(this.data.customerServiceWorkEnd || "21:00").trim()
-      }
+        end: String(this.data.customerServiceWorkEnd || "21:00").trim(),
+      },
     };
   },
 
@@ -280,15 +298,12 @@ Page({
     }
     this.setData({
       customerServiceSaving: true,
-      customerServiceStatus: {
-        status: "saving",
-        message: "正在保存客服策略"
-      }
+      customerServiceStatus: { status: "saving", message: "正在保存客服策略" },
     });
     try {
       const data = await api.request("/api/customer-service/strategy/save", {
         method: "POST",
-        data: { strategy }
+        data: { strategy },
       });
       this.applyCustomerServiceStrategy(data.strategy || strategy, "connected", "客服策略已保存");
       this.toast("客服策略已保存");
@@ -297,8 +312,8 @@ Page({
       this.setData({
         customerServiceStatus: {
           status: "error",
-          message: error.message || "保存客服策略失败"
-        }
+          message: error.message || "保存客服策略失败",
+        },
       });
     } finally {
       this.setData({ customerServiceSaving: false });
@@ -309,7 +324,7 @@ Page({
     this.applyCustomerServiceStrategy(
       config.DEFAULT_CUSTOMER_SERVICE_STRATEGY,
       "default",
-      "已恢复默认客服策略"
+      "已恢复默认客服策略",
     );
     this.toast("已恢复默认策略");
   },
@@ -330,14 +345,14 @@ Page({
     const profile = {
       persona: this.data.persona,
       replyStyle: this.data.replyStyle,
-      offer: this.data.offer
+      offer: this.data.offer,
     };
     getApp().globalData.userProfile = profile;
     tt.setStorageSync("userProfile", profile);
-    this.toast("已保存");
+    this.toast("已保存个人配置");
   },
 
   toast(title) {
     tt.showToast({ title, icon: "none" });
-  }
+  },
 });

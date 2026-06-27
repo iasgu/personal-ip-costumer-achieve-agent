@@ -22,6 +22,7 @@ function request(path, options = {}) {
       data: options.data || {},
       header: {
         "content-type": "application/json",
+        accept: "application/json",
         ...(options.header || {})
       },
       success(response) {

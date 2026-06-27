@@ -66,6 +66,17 @@ const server = http.createServer(async (req, res) => {
       return sendJson(res, 200, { ok: true, strategy: buildCurrentStrategy() });
     }
 
+    if (req.method === "GET" && url.pathname === "/api/customer-service/strategy/current") {
+      return sendJson(res, 200, { ok: true, strategy: buildCurrentStrategy() });
+    }
+
+    if (req.method === "POST" && url.pathname === "/api/customer-service/strategy/save") {
+      const body = await readBodyJson(req);
+      const strategy = normalizeCustomerServiceStrategy(body.strategy || body);
+      writeJson(path.join(dataDir, "customer-service-strategy.json"), strategy);
+      return sendJson(res, 200, { ok: true, strategy });
+    }
+
     if (req.method === "GET" && url.pathname === "/api/douyin/auth/status") {
       return sendJson(res, 200, { ok: true, auth: douyinAuth.redactAuth(douyinAuth.getAuthSnapshot(rootDir)) });
     }
@@ -439,14 +450,53 @@ function createPublishDraft(input) {
 
 function buildCurrentStrategy() {
   const auntieRules = loadAuntieRules();
-  return {
-    persona: "偏个人IP口语，先像真人再像工具",
-    replyStyle: "短句、接话、克制，不硬广，不承诺结果",
-    publishStyle: "先拆爆款钩子，再换成自己的案例和转化点",
+  const stored = readJson(path.join(dataDir, "customer-service-strategy.json"), {});
+  const defaults = {
+    sceneName: "抖音评论回复",
+    businessSummary: "面向抖音评论区的评论互动辅助与回复策略管理",
+    businessItems: ["评论分类", "回复建议生成", "人工确认发布", "全自动回复"],
+    replyRules: ["先判断意图，再回复", "风险评论先转人工", "价格/结果类不要乱承诺", "回复尽量短，像真人"],
+    handoffRules: ["投诉争议", "隐私信息", "高风险承诺", "无法判断"],
+    fallbackReply: "我先记一下，稍后给你更准确的回复。",
+    prompt: "你是抖音评论区运营助手，先识别问题类型，再生成短句、自然、真实克制的中文回复。",
+    tone: "professional",
     humanApproval: true,
-    source: auntieRules.source || "built-in",
+    workingHours: { timezone: "Asia/Shanghai", start: "09:00", end: "21:00" },
+  };
+  return {
+    ...defaults,
+    ...stored,
+    workingHours: {
+      ...defaults.workingHours,
+      ...(stored.workingHours || {}),
+    },
+    persona: stored.persona || "偏个人IP口语，先像真人再像工具",
+    replyStyle: stored.replyStyle || "短句、接话、克制，不硬广，不承诺结果",
+    publishStyle: stored.publishStyle || "先拆爆款钩子，再换成自己的案例和转化点",
+    source: stored.sceneName ? "stored" : auntieRules.source || "built-in",
     hints: auntieRules.hints || [],
   };
+}
+
+function normalizeCustomerServiceStrategy(strategy = {}) {
+  const defaults = buildCurrentStrategy();
+  return {
+    ...defaults,
+    ...strategy,
+    workingHours: {
+      ...(defaults.workingHours || {}),
+      ...(strategy.workingHours || {}),
+    },
+    businessItems: normalizeTextList(strategy.businessItems),
+    replyRules: normalizeTextList(strategy.replyRules),
+    handoffRules: normalizeTextList(strategy.handoffRules),
+    humanApproval: parseBoolean(strategy.humanApproval, defaults.humanApproval),
+  };
+}
+
+function normalizeTextList(value) {
+  const list = Array.isArray(value) ? value : String(value || "").split(/\n+/);
+  return list.map((item) => String(item || "").replace(/^[\-\*\d.\s]+/, "").trim()).filter(Boolean);
 }
 
 async function listComments({ itemId, cursor }) {
