@@ -15,32 +15,30 @@ Default health check:
 GET /api/health
 ```
 
-## Docker Deployment
+## Cloud Deployment
 
-If the Git repository root is this backend folder, use:
+Preferred path:
 
-```text
-Dockerfile
-```
+- Template: `Node.js`
+- Dependency version: `18.x`
+- Start command: `npm start`
 
-If the Git repository root is the whole project folder, use:
+If the platform asks for a startup script, use the root `run.sh` in this repository.
 
-```text
-prototype/douyin-comment-reply-agent/Dockerfile
-```
-
-The container listens on:
+Cloud runtime:
 
 ```text
-PORT=8893
 HOST=0.0.0.0
+PORT=8000
 ```
+
+If you still choose Docker deployment, use the root `Dockerfile`.
 
 ## Required Environment Variables
 
 ```text
 HOST=0.0.0.0
-PORT=8893
+PORT=8000
 DOUYIN_OPENAPI_BASE=https://open.douyin.com
 DOUYIN_APP_TYPE=mini
 DOUYIN_APP_ID=<Douyin mini app id>
